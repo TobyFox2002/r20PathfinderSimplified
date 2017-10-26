@@ -2287,8 +2287,16 @@ h2 label {
 	margin:0;
 	padding:0;
 }
-
-
+.sheet-progress-icon {
+	position:absolute;
+	z-index: 5;
+    top: 4em;
+    color: red;
+    background-color: white;
+}
+.sheet-progress-show:not(:checked) ~ .sheet-progress-icon {
+	display: none;
+}
 /* generic css buttons borders and colors only */
 .sheet-cssbutton {
 	width: 1.4rem !important;
