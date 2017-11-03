@@ -1977,6 +1977,19 @@ button[type=roll].sheet-command-button::before {
 .sheet-linked-fields .sheet-small-label2:first-child {
 	margin-right:0px;
 }
+
+.sheet-cssbutton-label {
+    margin-left: -3em;
+    font-weight: bold;
+    font-size: .666rem;
+    font-style: italic;
+    vertical-align: bottom;
+    cursor: help;
+}
+.sheet-small-label2 .sheet-cssbutton-label {
+    margin-left:-.25em;
+}
+
 .sheet-linked-fields .sheet-small-label2:last-child {
 	margin-left:0px;
 }

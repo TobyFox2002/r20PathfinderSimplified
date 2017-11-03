@@ -156,34 +156,38 @@
 <input type="hidden" name="attr_app-chk-cond-1" value="0" title="Preset Buffs/Debuffs @{app-chk-cond-1}" readonly>
 <input type="hidden" name="attr_app-chk-cond-2" value="0" title="Preset Buffs/Debuffs @{app-chk-cond-2}" readonly>
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|APP-Check}" type="roll" name="roll_APP-Check" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{character_id=@{character_id}}} {{check=Appearance Check}} {{skill_chk=[[ 1d20 + [[ @{APP-mod} ]] + [[ @{APP-chk-cond-1} ]][Cond1] + [[ @{APP-chk-cond-2} ]] - [[ @{condition-Wounds} ]] + [[ @{condition-Drained} ]] ]]}}">APP</button></span>
-                <span class="sheet-tdcs"><input title="@{APP}" type="number" name="attr_APP" value="(@{APP-base} + [[ @{APP-enhance} ]] + [[ @{APP-misc} ]] + [[ @{APP-drain} + @{APP-penalty} + @{APP-damage} ]])" disabled="true"></span> <!-- value="(@{APP-base} + [[ @{APP-enhance} ]] + [[ @{APP-misc} ]] + [[ @{APP-drain} ]])" -->
-                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{APP-mod}" type="number" name="attr_APP-mod" value=""></span> <!-- value="((floor(@{APP}/2)-5) + floor(@{APP-temp}/2) - (floor(abs(@{APP-damage})/2)) - (floor(abs(@{APP-penalty})/2)))" -->
+                <span class="sheet-tdcs"><input title="@{APP}" type="number" name="attr_APP" value="0" readonly></span>
+<!-- (@{APP-base} + [[ @{APP-enhance} ]] + [[ @{APP-misc} ]] + [[ @{APP-drain} + @{APP-penalty} + @{APP-damage} ]]) -->
+                <span class="sheet-tdcs"><input class="sheet-calc" title="@{APP-mod}" type="number" name="attr_APP-mod" value="0" readonly></span>
+<!-- value="((floor(@{APP}/2)-5) + floor(@{APP-temp}/2) - (floor(abs(@{APP-damage})/2)) - (floor(abs(@{APP-penalty})/2)))" -->
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{APP-base}" type="number" name="attr_APP-base" value="10"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{APP-enhance}" type="number" name="attr_APP-enhance" value="0"></span>
                 <span class="sheet-tdcs"><input title="@{APP-misc}" type="number" name="attr_APP-misc" value="0"></span>
-                <span class="sheet-tdcs"><input title="@{APP-temp}" type="number" name="attr_APP-temp" value="0" min="0"></span>
+                <span class="sheet-tdcs"><input title="@{APP-temp}" type="number" name="attr_APP-temp" value="0"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{APP-damage}" type="number" name="attr_APP-damage" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{APP-penalty}" type="number" name="attr_APP-penalty" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{APP-drain}" type="number" name="attr_APP-drain" value="0" max="0"></span>
 				<span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
 				<span class="sheet-tdcs"><input title="@{APP-cond-1}" type="number" name="attr_APP-cond-1" value="0" readonly></span>
-				<span class="sheet-tdcs"><input title="@{APP-cond-1}" type="number" name="attr_APP-cond-2" value="0" readonly></span>
+				<span class="sheet-tdcs"><input title="@{APP-cond-2}" type="number" name="attr_APP-cond-2" value="0" readonly></span>
             </div>
             <div class="sheet-table-row">
 <input type="hidden" name="attr_str-chk-cond-1" value="0" title="Preset Buffs/Debuffs @{str-chk-cond-1}" readonly>
 <input type="hidden" name="attr_str-chk-cond-2" value="0" title="Preset Buffs/Debuffs @{str-chk-cond-2}" readonly>
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|STR-Check}" type="roll" name="roll_STR-Check" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{character_id=@{character_id}}} {{check=Strength Check}} {{skill_chk=[[ 1d20 + [[ @{STR-mod} ]] + [[ @{STR-chk-cond-1} ]][Cond1] + [[ @{STR-chk-cond-2} ]] - [[ @{condition-Wounds} ]] + [[ @{condition-Drained} ]] ]]}}">STR</button></span>
-                <span class="sheet-tdcs"><input title="@{STR}" type="number" name="attr_STR" value="(@{STR-base} + [[ @{STR-enhance} ]] + [[ @{STR-misc} ]] + [[ @{STR-drain} + @{STR-penalty} + @{STR-damage} ]] - [[ @{condition-Fatigued} ]])" disabled="true"></span><!-- value="(@{STR-base} + [[ @{STR-enhance} ]] + [[ @{STR-misc} ]] + [[ @{STR-drain} ]])" -->
-                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{STR-mod}" type="number" name="attr_STR-mod" value=""></span><!-- value="((floor(@{STR}/2)-5) + floor(@{STR-temp}/2) - (floor(abs(@{STR-damage})/2)) - (floor(abs(@{STR-penalty})/2)) - [[ @{condition-fatigued} ]])" -->
+                <span class="sheet-tdcs"><input title="@{STR}" type="number" name="attr_STR" value="0" readonly></span>
+<!-- value="(@{STR-base} + [[ @{STR-enhance} ]] + [[ @{STR-misc} ]] + [[ @{STR-drain} + @{STR-penalty} + @{STR-damage} ]] - [[ @{condition-Fatigued} ]])" -->
+                <span class="sheet-tdcs"><input class="sheet-calc" title="@{STR-mod}" type="number" name="attr_STR-mod" value="0" readonly></span>
+<!-- value="((floor(@{STR}/2)-5) + floor(@{STR-temp}/2) - (floor(abs(@{STR-damage})/2)) - (floor(abs(@{STR-penalty})/2)) - [[ @{condition-fatigued} ]])" -->
                 <span class="sheet-tdcs" style="vertical-align:middle;font-size:150%;"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{STR-base}" type="number" name="attr_STR-base" value="10"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{STR-enhance}" type="number" name="attr_STR-enhance" value="0"></span>
                 <span class="sheet-tdcs"><input title="@{STR-misc}" type="number" name="attr_STR-misc" value="0"></span>
-                <span class="sheet-tdcs"><input title="@{STR-temp}" type="number" name="attr_STR-temp" value="0" min="0"></span>
+                <span class="sheet-tdcs"><input title="@{STR-temp}" type="number" name="attr_STR-temp" value="0"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{STR-damage}" type="number" name="attr_STR-damage" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{STR-penalty}" type="number" name="attr_STR-penalty" value="0" max="0"></span>
@@ -196,14 +200,16 @@
 <input type="hidden" name="attr_dex-chk-cond-1" value="0" title="Preset Buffs/Debuffs @{dex-chk-cond-1}" readonly>
 <input type="hidden" name="attr_dex-chk-cond-2" value="0" title="Preset Buffs/Debuffs @{dex-chk-cond-2}" readonly>
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|DEX-Check}" type="roll" name="roll_DEX-Check" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{character_id=@{character_id}}} {{check=Dexterity Check}} {{skill_chk=[[ 1d20 + [[ @{DEX-mod} ]] + [[ @{DEX-chk-cond-1} ]][Cond1] + [[ @{DEX-chk-cond-2} ]] - [[ @{condition-Wounds} ]] + [[ @{condition-Drained} ]] ]]}}">DEX</button></span>
-                <span class="sheet-tdcs"><input title="@{DEX}" type="number" name="attr_DEX" value="(@{DEX-base} + [[ @{DEX-enhance} ]] + [[ @{DEX-misc} ]] + [[ @{DEX-drain} + @{DEX-penalty} + @{DEX-damage} ]] + [[ @{condition-entangled} * 2 ]] + [[ @{condition-grappled} * 2 ]] - [[ @{condition-Fatigued} ]])" disabled></span> <!-- value="(@{DEX-base} + [[ @{DEX-enhance} ]] + [[ @{DEX-misc} ]] + [[ @{DEX-drain} ]])" -->
-                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{DEX-mod}" type="number" name="attr_DEX-mod" value=""></span> <!-- value="((floor(@{DEX}/2)-5) + floor(@{DEX-temp}/2) - (floor(abs(@{DEX-damage})/2)) - (floor(abs(@{DEX-penalty})/2)) - [[ @{condition-entangled} ]] - [[ @{condition-grappled} ]] - [[ @{condition-fatigued} ]])" -->
+                <span class="sheet-tdcs"><input title="@{DEX}" type="number" name="attr_DEX" value="0" readonly></span>
+<!-- (@{DEX-base} + [[ @{DEX-enhance} ]] + [[ @{DEX-misc} ]] + [[ @{DEX-drain} + @{DEX-penalty} + @{DEX-damage} ]] + [[ @{condition-entangled} * 2 ]] + [[ @{condition-grappled} * 2 ]] - [[ @{condition-Fatigued} ]]) -->
+                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly" title="@{DEX-mod}" type="number" name="attr_DEX-mod" value="0"></span>
+<!-- value="((floor(@{DEX}/2)-5) + floor(@{DEX-temp}/2) - (floor(abs(@{DEX-damage})/2)) - (floor(abs(@{DEX-penalty})/2)) - [[ @{condition-entangled} ]] - [[ @{condition-grappled} ]] - [[ @{condition-fatigued} ]])" -->
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{DEX-base}" type="number" name="attr_DEX-base" value="10"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{DEX-enhance}" type="number" name="attr_DEX-enhance" value="0"></span>
                 <span class="sheet-tdcs"><input title="@{DEX-misc}" type="number" name="attr_DEX-misc" value="0"></span>
-                <span class="sheet-tdcs"><input title="@{DEX-temp}" type="number" name="attr_DEX-temp" value="0" min="0"></span>
+                <span class="sheet-tdcs"><input title="@{DEX-temp}" type="number" name="attr_DEX-temp" value="0"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{DEX-damage}" type="number" name="attr_DEX-damage" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{DEX-penalty}" type="number" name="attr_DEX-penalty" value="0" max="0"></span>
@@ -216,14 +222,16 @@
 <input type="hidden" name="attr_con-chk-cond-1" value="0" title="Preset Buffs/Debuffs @{con-chk-cond-1}" readonly>
 <input type="hidden" name="attr_con-chk-cond-2" value="0" title="Preset Buffs/Debuffs @{con-chk-cond-2}" readonly>
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|CON-Check}" type="roll" name="roll_CON-Check" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{character_id=@{character_id}}} {{check=Constitution Check}} {{skill_chk=[[ 1d20 + [[ @{CON-mod} ]] + [[ @{CON-chk-cond-1} ]][Cond1] + [[ @{CON-chk-cond-2} ]] - [[ @{condition-Wounds} ]] + [[ @{condition-Drained} ]] ]]}}">CON</button></span>
-                <span class="sheet-tdcs"><input title="@{CON}" type="number" name="attr_CON" value="(@{CON-base} + [[ @{CON-enhance} ]] + [[ @{CON-misc} ]] + [[ @{CON-drain} + @{CON-penalty} + @{CON-damage} ]])" disabled></span> <!-- value="(@{CON-base} + [[ @{CON-enhance} ]] + [[ @{CON-misc} ]] + [[ @{CON-drain} ]])" -->
-                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{CON-mod}" type="number" name="attr_CON-mod" value="((floor(@{CON}/2)-5) + floor(@{CON-temp}/2) - (floor(abs(@{CON-damage})/2)) - (floor(abs(@{CON-penalty})/2)))"></span> <!-- value="((floor(@{CON}/2)-5) + floor(@{CON-temp}/2) - (floor(abs(@{CON-damage})/2)) - (floor(abs(@{CON-penalty})/2)))" -->
+                <span class="sheet-tdcs"><input title="@{CON}" type="number" name="attr_CON" value="0" readonly></span>
+<!-- (@{CON-base} + [[ @{CON-enhance} ]] + [[ @{CON-misc} ]] + [[ @{CON-drain} + @{CON-penalty} + @{CON-damage} ]]) -->
+                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{CON-mod}" type="number" name="attr_CON-mod" value="0"></span>
+<!-- value="((floor(@{CON}/2)-5) + floor(@{CON-temp}/2) - (floor(abs(@{CON-damage})/2)) - (floor(abs(@{CON-penalty})/2)))" -->
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{CON-base}" type="number" name="attr_CON-base" value="10"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{CON-enhance}" type="number" name="attr_CON-enhance" value="0"></span>
                 <span class="sheet-tdcs"><input title="@{CON-misc}" type="number" name="attr_CON-misc" value="0"></span>
-                <span class="sheet-tdcs"><input title="@{CON-temp}" type="number" name="attr_CON-temp" value="0" min="0"></span>
+                <span class="sheet-tdcs"><input title="@{CON-temp}" type="number" name="attr_CON-temp" value="0"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{CON-damage}" type="number" name="attr_CON-damage" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{CON-penalty}" type="number" name="attr_CON-penalty" value="0" max="0"></span>
@@ -236,14 +244,16 @@
 <input type="hidden" name="attr_int-chk-cond-1" value="0" title="Preset Buffs/Debuffs @{int-chk-cond-1}" readonly>
 <input type="hidden" name="attr_int-chk-cond-2" value="0" title="Preset Buffs/Debuffs @{int-chk-cond-2}" readonly>
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|INT-Check}" type="roll" name="roll_INT-Check" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{character_id=@{character_id}}} {{check=Intelligence Check}} {{skill_chk=[[ 1d20 + [[ @{INT-mod} ]] + [[ @{INT-chk-cond-1} ]][Cond1] + [[ @{INT-chk-cond-2} ]] - [[ @{condition-Wounds} ]] + [[ @{condition-Drained} ]] ]]}}">INT</button></span>
-                <span class="sheet-tdcs"><input title="@{INT}" type="number" name="attr_INT" value="(@{INT-base} + [[ @{INT-enhance} ]] + [[ @{INT-misc} ]] + [[ @{INT-drain} + @{INT-penalty} + @{INT-damage} ]])" disabled></span> <!-- value="(@{INT-base} + [[ @{INT-enhance} ]] + [[ @{INT-misc} ]] + [[ @{INT-drain} ]])" -->
-                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{INT-mod}" type="number" name="attr_INT-mod" value="((floor(@{INT}/2)-5) + floor(@{INT-temp}/2) - (floor(abs(@{INT-damage})/2)) - (floor(abs(@{INT-penalty})/2)))"></span> <!-- value="((floor(@{INT}/2)-5) + floor(@{INT-temp}/2) - (floor(abs(@{INT-damage})/2)) - (floor(abs(@{INT-penalty})/2)))" -->
+                <span class="sheet-tdcs"><input title="@{INT}" type="number" name="attr_INT" value="0" readonly></span>
+<!-- value="(@{INT-base} + [[ @{INT-enhance} ]] + [[ @{INT-misc} ]] + [[ @{INT-drain} + @{INT-penalty} + @{INT-damage} ]])" -->
+                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{INT-mod}" type="number" name="attr_INT-mod" value="0"></span>
+<!-- value="((floor(@{INT}/2)-5) + floor(@{INT-temp}/2) - (floor(abs(@{INT-damage})/2)) - (floor(abs(@{INT-penalty})/2)))" -->
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input  title="@{INT-base}" type="number" name="attr_INT-base" value="10"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{INT-enhance}" type="number" name="attr_INT-enhance" value="0"></span>
                 <span class="sheet-tdcs"><input title="@{INT-misc}" type="number" name="attr_INT-misc" value="0"></span>
-                <span class="sheet-tdcs"><input title="@{INT-temp}" type="number" name="attr_INT-temp" value="0" min="0"></span>
+                <span class="sheet-tdcs"><input title="@{INT-temp}" type="number" name="attr_INT-temp" value="0"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{INT-damage}" type="number" name="attr_INT-damage" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{INT-penalty}" type="number" name="attr_INT-penalty" value="0" max="0"></span>
@@ -256,14 +266,16 @@
 <input type="hidden" name="attr_wis-chk-cond-1" value="0" title="Preset Buffs/Debuffs @{wis-chk-cond-1}" readonly>
 <input type="hidden" name="attr_wis-chk-cond-2" value="0" title="Preset Buffs/Debuffs @{wis-chk-cond-2}" readonly>
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|WIS-Check}" type="roll" name="roll_WIS-Check" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{character_id=@{character_id}}} {{check=Wisdom Check}} {{skill_chk=[[ 1d20 + [[ @{WIS-mod} ]] + [[ @{WIS-chk-cond-1} ]][Cond1] + [[ @{WIS-chk-cond-2} ]] - [[ @{condition-Wounds} ]] + [[ @{condition-Drained} ]] ]]}}">WIS</button></span>
-                <span class="sheet-tdcs"><input title="@{WIS}" type="number" name="attr_WIS" value="(@{WIS-base} + [[ @{WIS-enhance} ]] + [[ @{WIS-misc} ]] + [[ @{WIS-drain} + @{WIS-penalty} + @{WIS-damage} ]])" disabled></span> <!-- value="(@{WIS-base} + [[ @{WIS-enhance} ]] + [[ @{WIS-misc} ]] + [[ @{WIS-drain} ]])" -->
-                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{WIS-mod}" type="number" name="attr_WIS-mod" value="((floor(@{WIS}/2)-5) + floor(@{WIS-temp}/2) - (floor(abs(@{WIS-damage})/2)) - (floor(abs(@{WIS-penalty})/2)))"></span> <!-- value="((floor(@{WIS}/2)-5) + floor(@{WIS-temp}/2) - (floor(abs(@{WIS-damage})/2)) - (floor(abs(@{WIS-penalty})/2)))" -->
+                <span class="sheet-tdcs"><input title="@{WIS}" type="number" name="attr_WIS" value="0" readonly></span>
+<!-- value="(@{WIS-base} + [[ @{WIS-enhance} ]] + [[ @{WIS-misc} ]] + [[ @{WIS-drain} + @{WIS-penalty} + @{WIS-damage} ]])" -->
+                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{WIS-mod}" type="number" name="attr_WIS-mod" value="0"></span>
+<!-- value="((floor(@{WIS}/2)-5) + floor(@{WIS-temp}/2) - (floor(abs(@{WIS-damage})/2)) - (floor(abs(@{WIS-penalty})/2)))" -->
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{WIS-base}" type="number" name="attr_WIS-base" value="10"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{WIS-enhance}" type="number" name="attr_WIS-enhance" value="0"></span>
                 <span class="sheet-tdcs"><input title="@{WIS-misc}" type="number" name="attr_WIS-misc" value="0"></span>
-                <span class="sheet-tdcs"><input title="@{WIS-temp}" type="number" name="attr_WIS-temp" value="0" min="0"></span>
+                <span class="sheet-tdcs"><input title="@{WIS-temp}" type="number" name="attr_WIS-temp" value="0"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{WIS-damage}" type="number" name="attr_WIS-damage" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{WIS-penalty}" type="number" name="attr_WIS-penalty" value="0" max="0"></span>
@@ -276,14 +288,16 @@
 <input type="hidden" name="attr_cha-chk-cond-1" value="0" title="Preset Buffs/Debuffs @{cha-chk-cond-1}" readonly>
 <input type="hidden" name="attr_cha-chk-cond-2" value="0" title="Preset Buffs/Debuffs @{cha-chk-cond-2}" readonly>
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|CHA-Check}" type="roll" name="roll_CHA-Check" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{character_id=@{character_id}}} {{check=Charisma Check}} {{skill_chk=[[ 1d20 + [[ @{CHA-mod} ]] + [[ @{CHA-chk-cond-1} ]][Cond1] + [[ @{CHA-chk-cond-2} ]] - [[ @{condition-Wounds} ]] + [[ @{condition-Drained} ]] ]]}}">CHA</button></span>
-                <span class="sheet-tdcs"><input title="@{CHA}" type="number" name="attr_CHA" value="(@{CHA-base} + [[ @{CHA-enhance} ]] + [[ @{CHA-misc} ]] + [[ @{CHA-drain} + @{CHA-penalty} + @{CHA-damage} ]])" disabled></span> <!-- value="(@{CHA-base} + [[ @{CHA-enhance} ]] + [[ @{CHA-misc} ]] + [[ @{CHA-drain} ]])" -->
-                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{CHA-mod}" type="number" name="attr_CHA-mod" value="((floor(@{CHA}/2)-5) + floor(@{CHA-temp}/2) - (floor(abs(@{CHA-damage})/2)) - (floor(abs(@{CHA-penalty})/2)))"></span> <!-- value="((floor(@{CHA}/2)-5) + floor(@{CHA-temp}/2) - (floor(abs(@{CHA-damage})/2)) - (floor(abs(@{CHA-penalty})/2)))" -->
+                <span class="sheet-tdcs"><input title="@{CHA}" type="number" name="attr_CHA" value="0" readonly></span>
+<!-- value="(@{CHA-base} + [[ @{CHA-enhance} ]] + [[ @{CHA-misc} ]] + [[ @{CHA-drain} + @{CHA-penalty} + @{CHA-damage} ]])" -->
+                <span class="sheet-tdcs"><input class="sheet-calc" readonly="readonly"  title="@{CHA-mod}" type="number" name="attr_CHA-mod" value="0"></span>
+<!-- value="((floor(@{CHA}/2)-5) + floor(@{CHA-temp}/2) - (floor(abs(@{CHA-damage})/2)) - (floor(abs(@{CHA-penalty})/2)))" -->
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{CHA-base}" type="number" name="attr_CHA-base" value="10"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{CHA-enhance}" type="number" name="attr_CHA-enhance" value="0"></span>
                 <span class="sheet-tdcs"><input title="@{CHA-misc}" type="number" name="attr_CHA-misc" value="0"></span>
-                <span class="sheet-tdcs"><input title="@{CHA-temp}" type="number" name="attr_CHA-temp" value="0" min="0"></span>
+                <span class="sheet-tdcs"><input title="@{CHA-temp}" type="number" name="attr_CHA-temp" value="0"></span>
                 <span class="sheet-tdcs sheet-attrSpacer"><b>|</b></span>
                 <span class="sheet-tdcs"><input title="@{CHA-damage}" type="number" name="attr_CHA-damage" value="0" max="0"></span>
                 <span class="sheet-tdcs"><input title="@{CHA-penalty}" type="number" name="attr_CHA-penalty" value="0" max="0"></span>
@@ -367,7 +381,7 @@
                         </div>
                         <div class="sheet-table-row">
                             <span class="sheet-tdcs" style="width:5%;"><button title="%{selected|Roll-for-initiative}" type="roll" name="roll_Roll-for-initiative" value="&{template:35Adv_check} {{name=@{displayName}}} {{character_id=@{character_id}}} {{check=Initiative}} {{init=[[ ((1d20 + [[ @{init} ]]) + [[ abs((0.01 * @{init})) ]]) &{tracker} ]]}} {{init_notes=@{InitiativeNotes}}}"></button></span>
-                            <span class="sheet-tdcs"><input type="number" title="@{init}" name="attr_init" value="(@{DEX-mod} + [[ @{init-misc} ]] + [[ @{init-trait} ]] - [[ @{condition-deafened} ]])" disabled></span>
+                            <span class="sheet-tdcs"><input type="number" title="@{init}" name="attr_init" value="(@{DEX-mod} + [[ @{init-misc} ]] + [[ @{init-trait} ]] - [[ @{condition-deafened} ]])" readonly></span>
                             <span class="sheet-tdcs">=</span>
                             <span class="sheet-tdcs"><input type="number" title="@{DEX-mod}" name="attr_init-DEX" value="@{DEX-mod}" disabled></span> 
                             <span class="sheet-tdcs">+</span>
@@ -391,20 +405,32 @@
                     <div class="sheet-table">
                         <span class="sheet-table-name">Speeds</span>
                         <div class="sheet-table-row">
+							<span class="sheet-table-header">Total</span>
                             <span class="sheet-table-header">Base</span>
+							<span class="sheet-table-header">Misc</span>
+							<span class="sheet-table-header">-AC</span>
                             <span class="sheet-table-header">Fly</span>
                             <span class="sheet-table-header">Swim</span>
                             <span class="sheet-table-header">Climb</span>
 							<span class="sheet-table-header">Burrow</span>
-                            <span class="sheet-table-header">Misc</span>
+							<span class="sheet-table-header"> | </span> 
+							<span class="sheet-table-header">Cond1</span>
+							<span class="sheet-table-header">Cond2</span>
+                            
                         </div>
                         <div class="sheet-table-row">
-                            <span class="sheet-tdcs"><input title="@{speed-base}" type="number" name="attr_speed-base" value="0" step="5"></span>
+							<span class="sheet-tdcs"><input title="@{speed-total}" type="number" name="attr_speed-total" value="0" readonly></span>
+							<span class="sheet-tdcs"><input title="@{speed-base}" type="number" name="attr_speed-base" value="0" step="5"></span>
+							<span class="sheet-tdcs"><input title="@{speed-misc}" type="number" name="attr_speed-misc" value="0" step="5"></span>
+                            <span class="sheet-tdcs"><input title="@{speed-fromAC}" type="number" name="attr_speed-fromAC" value="0" readonly></span>
                             <span class="sheet-tdcs"><input title="@{speed-fly}" type="number" name="attr_speed-fly" value="0" step="5"></span>
                             <span class="sheet-tdcs"><input title="@{speed-swim}" type="number" name="attr_speed-swim" value="0" step="5"></span>
                             <span class="sheet-tdcs"><input title="@{speed-climb}" type="number" name="attr_speed-climb" value="0" step="5"></span>
 							<span class="sheet-tdcs"><input title="@{speed-burrow}" type="number" name="attr_speed-burrow" value="0" step="5"></span>
-                            <span class="sheet-tdcs"><input title="@{speed-misc}" type="number" name="attr_speed-misc" value="0" step="5"></span>
+							<span class="sheet-tdcs"> | </span>
+							<span class="sheet-tdcs"><input title="@{speed-cond-1}" type="number" name="attr_speed-cond-1" readonly></span>
+							<span class="sheet-tdcs"><input title="@{speed-cond-2}" type="number" name="attr_speed-cond-2" readonly></span>
+                            
                         </div>
                     </div>
 					<div class="sheet-table">
@@ -1025,7 +1051,8 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name">AC</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{AC}" type="number" name="attr_AC" value="(10 + [[ @{AC-armor} ]] + [[ @{AC-shield} ]] + [[ @{AC-DEX} ]] + [[ @{size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-natural} ]] + [[ @{AC-deflect} ]] + [[ @{AC-misc} ]] + [[ @{AC-temp} ]] + [[ @{AC-penalty} ]] - [[ @{condition-blinded} ]] - [[ @{condition-cowering} ]] - [[ @{condition-stunned} ]] - [[ @{condition-pinned} ]] - [[ @{condition-Wounds} ]])" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{AC}" type="number" name="attr_AC" value="0" readonly></span>
+<!-- value="(10 + [[ @{AC-armor} ]] + [[ @{AC-shield} ]] + [[ @{AC-DEX} ]] + [[ @{size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-natural} ]] + [[ @{AC-deflect} ]] + [[ @{AC-misc} ]] + [[ @{AC-temp} ]] + [[ @{AC-penalty} ]] - [[ @{condition-blinded} ]] - [[ @{condition-cowering} ]] - [[ @{condition-stunned} ]] - [[ @{condition-pinned} ]] - [[ @{condition-Wounds} ]])" -->
                 <span class="sheet-tdcs" style="width:48px;">= 10 +</span>
                 <span class="sheet-tdcs"><input class="sheet-calc" style="width:100%;" title="@{armor-acbonus}" type="number" name="attr_AC-armor" readonly="readonly"></span>
                 <span class="sheet-tdcs">+</span>
@@ -1052,7 +1079,8 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name" style="width:90px;">Touch</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{Touch}" type="number" name="attr_Touch" value="(10 + [[ @{AC-DEX} ]] + [[ @{size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-deflect} ]] + [[ @{AC-misc} ]] + [[ @{AC-temp} ]] + [[ @{AC-penalty} ]] - [[ @{condition-blinded} ]] - [[ @{condition-cowering} ]] - [[ @{condition-stunned} ]] - [[ @{condition-pinned} ]] - [[ @{condition-Wounds} ]])" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{Touch}" type="number" name="attr_Touch" value="0" readonly></span>
+<!-- value="(10 + [[ @{AC-DEX} ]] + [[ @{size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-deflect} ]] + [[ @{AC-misc} ]] + [[ @{AC-temp} ]] + [[ @{AC-penalty} ]] - [[ @{condition-blinded} ]] - [[ @{condition-cowering} ]] - [[ @{condition-stunned} ]] - [[ @{condition-pinned} ]] - [[ @{condition-Wounds} ]])" -->
                 <span class="sheet-tdcs" style="width:48px;">= 10 +</span>
                 <span class="sheet-tdcs">&nbsp;</span>
                 <span class="sheet-tdcs"></span>
@@ -1079,7 +1107,8 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name">Flat-Footed</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{Flat-Footed}" type="number" name="attr_Flat-Footed" value="(10 + [[ @{AC-armor} ]] + [[ @{AC-shield} ]] + [[ @{FF-DEX} ]] + [[ @{size} ]] + [[ @{AC-natural} ]] + [[ @{AC-deflect} ]] + [[ @{AC-misc} ]] + [[ @{AC-temp} ]] + [[ @{AC-penalty} ]] - [[ @{condition-blinded} ]] - [[ @{condition-cowering} ]] - [[ @{condition-stunned} ]] - [[ @{condition-pinned} ]] - [[ @{condition-Wounds} ]])" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{Flat-Footed}" type="number" name="attr_Flat-Footed" value="0" readonly></span>
+<!-- value="(10 + [[ @{AC-armor} ]] + [[ @{AC-shield} ]] + [[ @{FF-DEX} ]] + [[ @{size} ]] + [[ @{AC-natural} ]] + [[ @{AC-deflect} ]] + [[ @{AC-misc} ]] + [[ @{AC-temp} ]] + [[ @{AC-penalty} ]] - [[ @{condition-blinded} ]] - [[ @{condition-cowering} ]] - [[ @{condition-stunned} ]] - [[ @{condition-pinned} ]] - [[ @{condition-Wounds} ]])" -->
                 <span class="sheet-tdcs" style="width:48px;">= 10 +</span>
                 <span class="sheet-tdcs"><input class="sheet-calc" style="width:100%;" title="@{armor-acbonus}" type="number" name="attr_AC-armor" readonly="readonly" ></span>
                 <span class="sheet-tdcs">+</span>
@@ -1133,7 +1162,7 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name">CMD</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{CMD}" type="number" name="attr_CMD" value="(10 + [[ @{bab} ]] + [[ @{STR-mod} ]] + [[ @{DEX-mod} ]] + [[ @{CMD-size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-deflect} ]] + [[ @{CMD-misc} ]] + [[ @{CMD-temp} ]] + [[ @{AC-penalty} ]] + [[ @{condition-drained} ]] - [[ @{condition-Wounds} ]])" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{CMD}" type="number" name="attr_CMD" value="(10 + [[ @{bab} ]] + [[ @{STR-mod} ]] + [[ @{DEX-mod} ]] + [[ @{CMD-size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-deflect} ]] + [[ @{CMD-misc} ]] + [[ @{CMD-temp} ]] + [[ @{AC-penalty} ]] + [[ @{condition-drained} ]] - [[ @{condition-Wounds} ]])" readonly></span>
                 <span class="sheet-tdcs" style="width:48px;">= 10 +</span>
                 <span class="sheet-tdcs"><input style="width:100%;" title="@{bab}" type="number" name="attr_CMD-bab" value="@{bab}" disabled></span>
                 <span class="sheet-tdcs">+</span>
@@ -1158,7 +1187,7 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name">FF CMD</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{FF-CMD}" type="number" name="attr_FF-CMD" value="(10 + [[ @{bab} ]] + [[ @{STR-mod} ]] + [[ @{FF-DEX} ]] + [[ @{CMD-size} ]] + [[ @{AC-deflect} ]] + [[ @{CMD-misc} ]] + [[ @{CMD-temp} ]] + [[ @{AC-penalty} ]] + [[ @{condition-drained} ]] - [[ @{condition-Wounds} ]])" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{FF-CMD}" type="number" name="attr_FF-CMD" value="(10 + [[ @{bab} ]] + [[ @{STR-mod} ]] + [[ @{FF-DEX} ]] + [[ @{CMD-size} ]] + [[ @{AC-deflect} ]] + [[ @{CMD-misc} ]] + [[ @{CMD-temp} ]] + [[ @{AC-penalty} ]] + [[ @{condition-drained} ]] - [[ @{condition-Wounds} ]])" readonly></span>
                 <span class="sheet-tdcs" style="width:48px;">= 10 +</span>
                 <span class="sheet-tdcs"><input style="width:100%;" title="@{bab}" type="number" name="attr_CMD-bab" value="@{bab}" disabled></span>
                 <span class="sheet-tdcs">+</span>
@@ -1268,9 +1297,9 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name" ><button class="sheet-text-button" title="%{selected|Fort-Save}" type="roll" name="roll_Fort-Save" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{check=Fort save}} {{skill_chk=[[1d20 + @{Fort}]]}} {{chk_cond2=Save Notes: }} {{chk_cond2_value=@{Save-notes}}}">Fort</button></span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{Fort}" type="number" name="attr_Fort" value="(@{total-Fort} + @{CON-mod} + @{Fort-trait} + @{Fort-enhance} + @{Fort-resist} + @{Fort-misc} + @{Fort-temp} - @{condition-fear} - @{condition-sickened} + @{condition-drained} - @{condition-Wounds})" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{Fort}" type="number" name="attr_Fort" value="(@{totalFSv} + @{CON-mod} + @{Fort-trait} + @{Fort-enhance} + @{Fort-resist} + @{Fort-misc} + @{Fort-temp} + @{fort-cond-1} + @{fort-cond-2})" disabled><input style="width:100%;" title="@{Fortitude}" type="number" name="attr_Fortitude" value="(@{totalFSv} + @{CON-mod} + @{Fort-trait} + @{Fort-enhance} + @{Fort-resist} + @{Fort-misc} + @{Fort-temp} + @{fort-cond-1} + @{fort-cond-2})" disabled></span>
                 <span class="sheet-tdcs">=</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{total-Fort}" type="number" name="attr_Fort-base" value="@{total-Fort}" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{totalFSv}" type="number" name="attr_totalFSv" readonly></span>
                 <span class="sheet-tdcs">+</span>
                 <span class="sheet-tdcs"><input style="width:100%;" title="@{CON-mod}" type="number" name="attr_Fort-ability" value="@{CON-mod}" disabled></span>
                 <span class="sheet-tdcs">+</span>
@@ -1289,9 +1318,9 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|Ref-Save}" type="roll" name="roll_Ref-Save" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{check=Ref save}} {{skill_chk=[[1d20 + @{Ref}]]}} {{chk_cond2=Save Notes: }} {{chk_cond2_value=@{Save-notes}}}">Ref</button></span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{Ref}" type="number" name="attr_Ref" value="(@{total-Ref} + @{DEX-mod} + @{Ref-trait} + @{Ref-enhance} + @{Ref-resist} + @{Ref-misc} + @{Ref-temp} - @{condition-fear} - @{condition-sickened} + @{condition-drained} - @{condition-Wounds})" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{Ref}" type="number" name="attr_Ref" value="(@{totalRSv} + @{DEX-mod} + @{Ref-trait} + @{Ref-enhance} + @{Ref-resist} + @{Ref-misc} + @{Ref-temp} + @{ref-cond-1} + @{ref-cond-2})" disabled></span>
                 <span class="sheet-tdcs">=</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{total-Ref}" type="number" name="attr_Ref-base" value="@{total-Ref}" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{total-Ref}" type="number" name="attr_totalRSv" readonly></span>
                 <span class="sheet-tdcs">+</span>
                 <span class="sheet-tdcs"><input style="width:100%;" title="@{DEX-mod}" type="number" name="attr_Ref-ability" value="@{DEX-mod}" disabled></span>
                 <span class="sheet-tdcs">+</span>
@@ -1310,9 +1339,9 @@
             </div>
             <div class="sheet-table-row">
                 <span class="sheet-table-row-name" style="text-align:left;"><button class="sheet-text-button" title="%{selected|Will-Save}" type="roll" name="roll_Will-Save" value="&{template:35Adv_check} {{name=@{displayName}'s}} {{check=Will save}} {{skill_chk=[[1d20 + @{Will}]]}} {{chk_cond2=Save Notes: }} {{chk_cond2_value=@{Save-notes}}}">Will</button></span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{Will}" type="number" name="attr_Will" value="(@{total-Will} + @{WIS-mod} + @{Will-trait} + @{Will-enhance} + @{Will-resist} + @{Will-misc} + @{Will-temp} - @{condition-fear} - @{condition-sickened} + @{condition-drained} - @{condition-Wounds})" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{Will}" type="number" name="attr_Will" value="(@{totalWSv} + @{WIS-mod} + @{Will-trait} + @{Will-enhance} + @{Will-resist} + @{Will-misc} + @{Will-temp} + @{will-cond-1} + @{will-cond-2})" disabled></span>
                 <span class="sheet-tdcs">=</span>
-                <span class="sheet-tdcs"><input style="width:100%;" title="@{total-Will}" type="number" name="attr_Will-base" value="@{total-Will}" disabled></span>
+                <span class="sheet-tdcs"><input style="width:100%;" title="@{total-Will}" type="number" name="attr_totalWSv" readonly></span>
                 <span class="sheet-tdcs">+</span>
                 <span class="sheet-tdcs"><input style="width:100%;" title="@{WIS-mod}" type="number" name="attr_Will-ability" value="@{WIS-mod}" disabled></span>
                 <span class="sheet-tdcs">+</span>
@@ -16098,19 +16127,13 @@ var UpdateBaseSaves = function(svs,cls){  // svs = saves Fort|Ref|Will, cls = cl
 	getAttrs(['class-'+cls+'-'+svs], function(v) {
 		
 		var clsSVS_old = v['class-'+cls+'-'+svs],   // Numeric Field
-			clsSVS_new = "";                // Selection Box
+			clsSVS_new = "";                        // Selection Box
 		
 		console.log("class-"+cls+"-"+svs+": [" + v['class-'+cls+"-bab"] + "]");
 		//console.log("class-"+cls+"-bab skillTot: [" + skillTot + "]");
 		//console.log("Skill Size : "  +SkillSize);
-
-
-
-
-		//   [[floor(@{class-0-level} * 0.5) + 2]]  FAST
-		//   [[floor((5/12)*@{class-0-level})+1]]   MED
-		//   [[floor(@{class-0-level} * 0.34)]]     SLOW
-									
+		
+//   [[floor(@{class-0-level} * 0.5) + 2]]  FAST		//   [[floor((5/12)*@{class-0-level})+1]]   MED		//   [[floor(@{class-0-level} * 0.34)]]     SLOW
 		if (v['class-'+cls+'-'+svs] === "@{fa-save-"+cls+"}") {
 			clsSVS_new = "[[floor(@{class-"+cls+"-level} * 0.5) + 2]]";
 			console.log("============= SET SAVE FAST =============");
@@ -16260,26 +16283,33 @@ var SetAbil = function(abil){
 "use strict";
 	console.log("=== Set Ability Scores ===");
 	console.log("Setting "+abil+" . . .");
-	getAttrs([abil+'-base', abil+'-enhance', abil+'-misc', abil+'-temp', abil+'-damage', abil+'-penalty', abil+'-drain', 'condition-Drained','toggle-entangled','toggle-grappled','toggle-Fear','toggle-Sickened','condition-Fatigued'], function(v) {
+	getAttrs([abil+'-base', abil+'-enhance', abil+'-misc', abil+'-temp', abil+'-damage', abil+'-penalty', abil+'-drain', abil+'-cond-1', abil+'-cond-2', 'condition-Wounds', 'condition-Drained','toggle-Entangled','toggle-Grappled','toggle-Fear','toggle-Sickened','condition-Fatigued'], function(v) {
 		console.log("GET " + abil+"-base: [" + v[abil+"-base"] + "] " + abil+"-enhance [" + v[abil+"-enhance"] + "] " + abil+"-misc [" + v[abil+"-misc"] + "] " + abil+"-temp [" + v[abil+"-temp"] + "]");
 		console.log("GET " + abil+"-damage: ["+ v[abil+"-damage"] + "] " + abil+"-penalty [" + v[abil+"-penalty"] + "] " + abil+"-drain [" + v[abil+"-drain"] + "]");
-		var stat = parseInt(v[abil+"-base"]) + parseInt(v[abil+"-enhance"]) + parseInt(v[abil+"-misc"]) + parseInt(v[abil+"-drain"]);
+		var stat = parseInt(v[abil+"-base"]) + parseInt(v[abil+"-enhance"]) + parseInt(v[abil+"-misc"]) + parseInt(v[abil+"-drain"]) + parseInt(v[abil+"-cond-1"]) + parseInt(v[abil+"-cond-2"]);
+			// + parseInt(v[abil+"-cond-1"]) + parseInt(v[abil+"-cond-2"])
 			//console.log("SET the value of " + +abil ": " +stat);
         var cond1 = 0, chkCond1 = 0;
 		var statMod = Math.floor(stat / 2) - 5 // Auto-calculated variable found in @{XXX}.  This is not drawn from the character sheet.
 			+ Math.floor(v[abil+'-temp'] / 2) // @{XXX-temp}
 			+ Math.floor(v[abil+'-damage'] / 2) // @{XXX-damage}
 			+ Math.floor(v[abil+'-penalty'] / 2); // @{XXX-penalty}
+		//	+ Math.floor(v[abil+'-cond-1'] / 2) // Cond1
+		//	+ Math.floor(v[abil+'-cond-2'] / 2); // Cond2
+//(@{DEX-base} + [[ @{DEX-enhance} ]] + [[ @{DEX-misc} ]] + [[ @{DEX-drain} + @{DEX-penalty} + @{DEX-damage} ]] + [[ @{condition-entangled} * 2 ]] + [[ @{condition-grappled} * 2 ]] - [[ @{condition-Fatigued} ]])
 	// Ability MOD Buffs/Debuffs
 		if(_.contains(['app', 'str', 'dex', 'con', 'int', 'wis', 'cha'],abil.toLowerCase())) { cond1 += parseInt(v['condition-Drained']); }
-		if(_.contains(['str', 'dex'],abil.toLowerCase())) { cond1 += parseInt(v['condition-Fatigued']); }
-		if(parseInt(v["toggle-Entangle"]) === 1) {if(_.contains(['dex'],abil.toLowerCase())){ cond -= 4; }}
-		if(parseInt(v["toggle-Grappled"]) === 1) {if(_.contains(['dex'],abil.toLowerCase())){ cond -= 4; }}
+		if(_.contains(['str', 'dex'],abil.toLowerCase())) { cond1 -= parseInt(v['condition-Fatigued']);}
+		if(parseInt(v["toggle-Entangle"]) === 1) {if(_.contains(['dex'],abil.toLowerCase())){ cond1 -= 4; console.log("===================Entangled===============");}}
+		if(parseInt(v["toggle-Grappled"]) === 1) {if(_.contains(['dex'],abil.toLowerCase())){ cond1 -= 4; console.log("===================Grappled===============");}}
 	// Ability CHECK Buffs/Debuffs
 		if(parseInt(v["toggle-Fear"]) === 1) {if(_.contains(['app', 'str', 'dex', 'con', 'int', 'wis', 'cha'],abil.toLowerCase())){ chkCond1 -= 2; }}
-		if(parseInt(v["toggle-Sickened"]) === 1) {if(_.contains(['app', 'str', 'dex', 'con', 'int', 'wis', 'cha'],abil.toLowerCase())){ chkCond1 -= 2; }}
+		if(parseInt(v["toggle-Sickened"]) === 1) {if(_.contains(['app', 'str', 'dex', 'con', 'int', 'wis', 'cha'],abil.toLowerCase())){ chkCond1 -= 2; }}parseInt(v['condition-Wounds'])
+		if(_.contains(['app', 'str', 'dex', 'con', 'int', 'wis', 'cha'],abil.toLowerCase())) { chkCond1 -= parseInt(v['condition-Wounds']);}
 		
+		console.log("Fatigue Value: " +parseInt(v['condition-Fatigued'])+".");
 			var update = {};
+			update[abil] = stat;
 			update[abil+'-mod']= statMod;
 			update[abil+'-cond-1'] = cond1;
 			update[abil+'-chk-cond-1'] = chkCond1;
@@ -16299,14 +16329,28 @@ var SetAbil = function(abil){
 		setAttrs(update);
 	});  // 
 };
-on('change:app-base change:app-enhance change:app-misc change:app-drain change:app-temp change:app-damage change:app-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened', _.bind(SetAbil,{},'app'));
-on('change:str-base change:str-enhance change:str-misc change:str-drain change:str-temp change:str-damage change:str-penalty change:condition-Drained change:condition-Fatigued change:toggle-Fear change:toggle-Sickened', _.bind(SetAbil,{},'str'));
-on('change:dex-base change:dex-enhance change:dex-misc change:dex-drain change:dex-temp change:dex-damage change:dex-penalty change:condition-Drained change:condition-Fatigued change:toggle-entangled change:toggle-grappled change:toggle-Fear change:toggle-Sickened', _.bind(SetAbil,{},'dex'));
-on('change:con-base change:con-enhance change:con-misc change:con-drain change:con-temp change:con-damage change:con-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened', _.bind(SetAbil,{},'con'));
-on('change:int-base change:int-enhance change:int-misc change:int-drain change:int-temp change:int-damage change:int-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened', _.bind(SetAbil,{},'int'));
-on('change:wis-base change:wis-enhance change:wis-misc change:wis-drain change:wis-temp change:wis-damage change:wis-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened', _.bind(SetAbil,{},'wis'));
-on('change:cha-base change:cha-enhance change:cha-misc change:cha-drain change:cha-temp change:cha-damage change:cha-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened', _.bind(SetAbil,{},'cha'));
+on('change:app-base change:app-enhance change:app-misc change:app-drain change:app-temp change:app-damage change:app-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened change:condition-Wounds change:app-cond-1 change:app-cond-2 change:recalc1', _.bind(SetAbil,{},'app'));
+on('change:str-base change:str-enhance change:str-misc change:str-drain change:str-temp change:str-damage change:str-penalty change:condition-Drained change:condition-Fatigued change:toggle-Fear change:toggle-Sickened change:condition-Wounds change:str-cond-1 change:str-cond-2 change:recalc1', _.bind(SetAbil,{},'str'));
+on('change:dex-base change:dex-enhance change:dex-misc change:dex-drain change:dex-temp change:dex-damage change:dex-penalty change:condition-Drained change:condition-Fatigued change:toggle-Entangled change:toggle-Grappled change:toggle-Fear change:toggle-Sickened change:condition-Wounds change:dex-cond-1 change:dex-cond-2 change:recalc1', _.bind(SetAbil,{},'dex'));
+on('change:con-base change:con-enhance change:con-misc change:con-drain change:con-temp change:con-damage change:con-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened change:condition-Wounds change:con-cond-1 change:con-cond-2 change:recalc1', _.bind(SetAbil,{},'con'));
+on('change:int-base change:int-enhance change:int-misc change:int-drain change:int-temp change:int-damage change:int-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened change:condition-Wounds change:int-cond-1 change:int-cond-2 change:recalc1', _.bind(SetAbil,{},'int'));
+on('change:wis-base change:wis-enhance change:wis-misc change:wis-drain change:wis-temp change:wis-damage change:wis-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened change:condition-Wounds change:wis-cond-1 change:wis-cond-2 change:recalc1', _.bind(SetAbil,{},'wis'));
+on('change:cha-base change:cha-enhance change:cha-misc change:cha-drain change:cha-temp change:cha-damage change:cha-penalty change:condition-Drained change:toggle-Fear change:toggle-Sickened change:condition-Wounds change:cha-cond-1 change:cha-cond-2 change:recalc1', _.bind(SetAbil,{},'cha'));
 
+/* Initiative & Speed */
+on("change:recalc1 change:dex-mod change:init-misc change:init-trait change:toggle-Deafened change:init-cond-1 change:init-cond-2", function () {
+	getAttrs(['dex-mod', 'init-misc', 'init-trait', 'toggle-Deafened', 'init-cond-1', 'init-cond-2'], function (v) {
+	var initative = parseInt(v['DEX-mod']) || 0 + parseInt(v['init-misc']) || 0 + parseInt(v['init-trait']) || 0 + parseInt(v['init-cond-1']) || 0 + parseInt(v['init-cond-2']) || 0;
+	var cond1 = 0;
+ // value="(@{DEX-mod} + [[ @{init-misc} ]] + [[ @{init-trait} ]] - [[ @{condition-deafened} ]])"
+ // Ability MOD Buffs/Debuffs
+		if (parseInt(v["toggle-Deafened"]) === 1) {cond1 -= 4;}
+    setAttrs({
+      'init': initative,
+	  'init-cond-1': cond1
+    });
+  });
+});
 
 
 /* ******************** Repeating Attacks ************************ */
@@ -16331,7 +16375,7 @@ on('change:repeating_weapon:name change:repeating_weapon:enhance change:repeatin
 });
 
 /* HP AND SKILLS HELPER */
-on('change:race-hp change:class-0-hp change:class-1-hp change:class-2-hp change:class-3-hp change:class-4-hp change:class-0-fchp change:class-1-fchp change:class-2-fchp change:class-3-fchp change:class-4-fchp change:class-0-fcskill change:class-1-fcskill change:class-2-fcskill change:class-3-fcskill change:class-4-fcskill', function() {
+on('change:recalc1 change:race-hp change:class-0-hp change:class-1-hp change:class-2-hp change:class-3-hp change:class-4-hp change:class-0-fchp change:class-1-fchp change:class-2-fchp change:class-3-fchp change:class-4-fchp change:class-0-fcskill change:class-1-fcskill change:class-2-fcskill change:class-3-fcskill change:class-4-fcskill', function() {
     getAttrs(['race-hp', 'class-0-hp', 'class-1-hp', 'class-2-hp', 'class-3-hp', 'class-4-hp', 'class-0-fchp', 'class-1-fchp', 'class-2-fchp', 'class-3-fchp', 'class-4-fchp', 'class-0-fcskill', 'class-1-fcskill', 'class-2-fcskill', 'class-3-fcskill', 'class-4-fcskill'], function(values) {	
 		var ClassHP = parseInt(values["race-hp"]) + parseInt(values["class-0-hp"]) + parseInt(values["class-1-hp"]) + parseInt(values["class-2-hp"]) + parseInt(values["class-3-hp"]) + parseInt(values["class-4-hp"]) + parseInt(values["class-0-fchp"]) + parseInt(values["class-1-fchp"]) + parseInt(values["class-2-fchp"]) + parseInt(values["class-3-fchp"]) + parseInt(values["class-4-fchp"]);
 			//console.log("SET the Total HP from Classes: " +ClassHP);
@@ -16350,46 +16394,29 @@ console.log("============= Set BAB Details =============");
     getAttrs(['race-bab', 'race-level', 'class-00-bab', 'class-0-level', 'class-01-bab', 'class-1-level', 'class-02-bab', 'class-2-level', 'class-03-bab', 'class-3-level', 'class-04-bab', 'class-4-level'], function(v) {
 //	           race-level class-0-level class-1-level class-2-level class-3-level class-4-level
 		var r_level = parseInt(v["race-level"],10||0), level_0 = parseInt(v["class-0-level"],10||0), level_1 = parseInt(v["class-1-level"],10||0), level_2 = parseInt(v["class-2-level"],10||0), level_3 = parseInt(v["class-3-level"],10||0), level_4 = parseInt(v["class-4-level"],10||0);
-		switch (v['race-bab']) {
-            case "[[floor(@{race-level})]]"       : BAB_R = Math.floor(r_level)        ;BABLabel_R = "F";break; // Fast
-            case "[[floor(@{race-level} * 0.75)]]": BAB_R = Math.floor(r_level * 0.75) ;BABLabel_R = "M";break; // Med
-            case "[[floor(@{race-level} * 0.5)]]" : BAB_R = Math.floor(r_level * 0.5)  ;BABLabel_R = "S";break; // Slow
-		default: BAB_R = 0; // None
-		}
-		switch (v['class-00-bab']) {
-            case "[[floor(@{class-0-level})]]"       : BAB_0 = Math.floor(level_0)        ;BABLabel_0 = "F";break; // Fast
-            case "[[floor(@{class-0-level} * 0.75)]]": BAB_0 = Math.floor(level_0 * 0.75) ;BABLabel_0 = "M";break; // Med
-            case "[[floor(@{class-0-level} * 0.5)]]" : BAB_0 = Math.floor(level_0 * 0.5)  ;BABLabel_0 = "S";break; // Slow
-		default: BAB_0 = 0; // None
-		}
-		switch (v['class-01-bab']) {
-            case "[[floor(@{class-1-level})]]"       : BAB_1 = Math.floor(level_1)        ;BABLabel_1 = "F";break; // Fast
-            case "[[floor(@{class-1-level} * 0.75)]]": BAB_1 = Math.floor(level_1 * 0.75) ;BABLabel_1 = "M";break; // Med
-            case "[[floor(@{class-1-level} * 0.5)]]" : BAB_1 = Math.floor(level_1 * 0.5)  ;BABLabel_1 = "S";break; // Slow
-		default: BAB_1 = 0; // None
-		}
-		switch (v['class-02-bab']) {
-            case "[[floor(@{class-2-level})]]"       : BAB_2 = Math.floor(level_2)        ;BABLabel_2 = "F";break; // Fast
-            case "[[floor(@{class-2-level} * 0.75)]]": BAB_2 = Math.floor(level_2 * 0.75) ;BABLabel_2 = "M";break; // Med
-            case "[[floor(@{class-2-level} * 0.5)]]" : BAB_2 = Math.floor(level_2 * 0.5)  ;BABLabel_2 = "S";break; // Slow
-		default: BAB_2 = 0; // None
-		}
-		switch (v['class-03-bab']) {
-            case "[[floor(@{class-3-level})]]"       : BAB_3 = Math.floor(level_3)        ;BABLabel_3 = "F";break; // Fast
-            case "[[floor(@{class-3-level} * 0.75)]]": BAB_3 = Math.floor(level_3 * 0.75) ;BABLabel_3 = "M";break; // Med
-            case "[[floor(@{class-3-level} * 0.5)]]" : BAB_3 = Math.floor(level_3 * 0.5)  ;BABLabel_3 = "S";break; // Slow
-		default: BAB_3 = 0; // None
-		}
-		switch (v['class-04-bab']) {
-            case "[[floor(@{class-4-level})]]"       : BAB_4 = Math.floor(level_4)        ;BABLabel_4 = "F";break; // Fast
-            case "[[floor(@{class-4-level} * 0.75)]]": BAB_4 = Math.floor(level_4 * 0.75) ;BABLabel_4 = "M";break; // Med
-            case "[[floor(@{class-4-level} * 0.5)]]" : BAB_4 = Math.floor(level_4 * 0.5)  ;BABLabel_4 = "S";break; // Slow
-		default: BAB_4 = 0; // None
-		}
+		const getAdjustForLevel = function (formula, level){
+			if(
+				/\[\[floor\(@{[^}]*}\s*\*\s*0.5\)\s*\+\s*2\]\]/i.test(formula)
+				|| /\[\[floor\(@{[^}]*}\)\]\]/.test(formula)
+			){ 
+				return {  save: (Math.floor(level)),  label: "F" };
+			} else if(/\[\[floor\(@{[^}]*}\s*\*\s*0.75\)\]\]/i.test(formula)){
+				return {  save: (Math.floor(level_2 * 0.75)), label: "M" };
+			} else if(/\[\[floor\(@{[^}]*}\s*\*\s*0.5\)\]\]/i.test(formula)){
+				return {  save: (Math.floor(level * 0.5)),   label: "S" };
+			}
+			return { save: 0, label: "" };
+		};
 		
-		var BAB_FINAL = BAB_R + BAB_0 + BAB_1 + BAB_2 + BAB_3 + BAB_4;
-		//console.log("======================= Racial Base Attack: Racial: [" + BAB_R +"]");console.log("======================= Racial Base Attack: Zero  : [" + BAB_0 +"]");console.log("======================= Racial Base Attack: One   : [" + BAB_1 +"]");console.log("======================= Racial Base Attack: Two   : [" + BAB_2 +"]");console.log("======================= Racial Base Attack: Three : [" + BAB_3 +"]");console.log("======================= Racial Base Attack: Four  : [" + BAB_4 +"]");console.log("======================= Racial Base Attack        : [" + BAB_FINAL +"]");
+		BABR = getAdjustForLevel(v['race-bab'],r_level);
+		BAB0 = getAdjustForLevel(v['class-00-bab'],level_0);
+		BAB1 = getAdjustForLevel(v['class-01-bab'],level_1);
+		BAB2 = getAdjustForLevel(v['class-02-bab'],level_2);
+		BAB3 = getAdjustForLevel(v['class-03-bab'],level_3);
+		BAB4 = getAdjustForLevel(v['class-04-bab'],level_4);
 		
+		var BAB_FINAL = BABR.save + BAB0.save + BAB1.save + BAB2.save + BAB3.save + BAB4.save;
+				
 		setAttrs({
 			'bab_ext': BAB_FINAL
         });
@@ -16406,14 +16433,15 @@ on("change:recalc1", function () {
 		UpdateBaseAtk(n);
 		});
 		if (v["Max-Skill-Ranks-formula"] === "(((@{class-0-skill} * @{class-0-level}) + (@{class-1-skill} * @{class-1-level}) + (@{class-2-skill} * @{class-2-level}) + (@{class-3-skill} * @{class-3-level}) + (@{class-4-skill} * @{class-4-level}) + [[ @{class-0-fcskill} ]] + [[ @{class-1-fcskill} ]] + [[ @{class-2-fcskill} ]] + [[ @{class-3-fcskill} ]] + [[ @{class-4-fcskill} ]]) + (@{INT-mod} * @{level}))" ) {setter["Max-Skill-Ranks-formula"] = "(((@{race-skill} * @{race-level}) + (@{class-0-skill} * @{class-0-level}) + (@{class-1-skill} * @{class-1-level}) + (@{class-2-skill} * @{class-2-level}) + (@{class-3-skill} * @{class-3-level}) + (@{class-4-skill} * @{class-4-level}) + [[ @{totalFavSk} ]]) + (@{INT-mod} * @{level}))";}
-
     }
     else {
 		
     }
     setAttrs({
       version: '1',
-	  recalc1: '0'
+	  recalc1: '0',
+	  'hp-toughness': 0,
+	  'acp-source': 1
     });
   });
 });
@@ -16445,9 +16473,9 @@ on('change:recalc1', _.bind(UpdateBaseAtk,{},'4'));
 
 
 //@{race-Fort} + @{class-0-Fort} + [[ @{class-1-Fort} ]] + [[ @{class-2-Fort} ]] + [[ @{class-3-Fort} ]] + [[ @{class-4-Fort} ]])
-on('change:race-Fort change:race-Ref change:race-Will change:race-level change:class-00-Fort change:class-00-Ref change:class-00-Will change:class-0-level change:class-01-Fort change:class-01-Ref change:class-01-Will change:class-1-level change:class-02-Fort change:class-02-Ref change:class-02-Will change:class-2-level change:class-03-Fort change:class-03-Ref change:class-03-Will change:class-3-level change:class-04-Fort change:class-04-Ref change:class-04-Will change:class-4-level', function() {
+on('change:recalc1 change:race-Fort change:race-Ref change:race-Will change:race-level change:class-00-Fort change:class-00-Ref change:class-00-Will change:class-0-level change:class-01-Fort change:class-01-Ref change:class-01-Will change:class-1-level change:class-02-Fort change:class-02-Ref change:class-02-Will change:class-2-level change:class-03-Fort change:class-03-Ref change:class-03-Will change:class-3-level change:class-04-Fort change:class-04-Ref change:class-04-Will change:class-4-level', function() {
 console.log("============= Set BAB Details =============");
-    getAttrs(['race-Fort', 'class-00-Fort', 'class-01-Fort', 'class-02-Fort', 'class-03-Fort', 'class-04-Fort', 'class-00-Ref', 'class-01-Ref', 'class-02-Ref', 'class-03-Ref', 'class-04-Ref', 'class-00-Will', 'class-01-Will', 'class-02-Will', 'class-03-Will', 'class-04-Will', 'race-level', 'class-0-level', 'class-1-level', 'class-2-level', 'class-3-level', 'class-4-level'], function(v) {
+    getAttrs(['race-Fort', 'class-00-Fort', 'class-01-Fort', 'class-02-Fort', 'class-03-Fort', 'class-04-Fort', 'race-Ref', 'class-00-Ref', 'class-01-Ref', 'class-02-Ref', 'class-03-Ref', 'class-04-Ref', 'race-Will', 'class-00-Will', 'class-01-Will', 'class-02-Will', 'class-03-Will', 'class-04-Will', 'race-level', 'class-0-level', 'class-1-level', 'class-2-level', 'class-3-level', 'class-4-level'], function(v) {
 //	           race-level class-0-level class-1-level class-2-level class-3-level class-4-level
 		var r_level = parseInt(v["race-level"],10||0),
 		level_0 = parseInt(v["class-0-level"],10||0),
@@ -16456,122 +16484,43 @@ console.log("============= Set BAB Details =============");
 		level_3 = parseInt(v["class-3-level"],10||0),
 		level_4 = parseInt(v["class-4-level"],10||0);
 		//console.log("========= Racial Base Saves :  R: [" + r_level +"] 1: [" + level_0 +"] 2: [" + level_1 +"] 3: [" + level_2 +"] 4: [" + level_3 +"] 4: [" + level_4 +"]");
-		switch (v['race-Fort']) {
-            case "[[floor(@{race-level} * 0.5) + 2]]" : FortSv_R = Math.floor(r_level * 0.5)+2; FortSvLabel_R = "F";break; // Fast
-            case "[[floor((5/12)*@{race-level})+1]]"  : FortSv_R = Math.floor((5/12)*r_level)+1;FortSvLabel_R = "M";break; // Med
-            case "[[floor(@{race-level} * 0.34)]]"    : FortSv_R = Math.floor(r_level * 0.34)  ;FortSvLabel_R = "S";break; // Slow
-		default: FortSv_R = 0;FortSvLabel_R = ""; // None
-		}
-		switch (v['class-00-Fort']) {
-            case "[[floor(@{class-0-level} * 0.5) + 2]]" : FortSv_0 = Math.floor(level_0 * 0.5)+2; FortSvLabel_0 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-0-level})+1]]"  : FortSv_0 = Math.floor((5/12)*level_0)+1;FortSvLabel_0 = "M";break; // Med
-            case "[[floor(@{class-0-level} * 0.34)]]"    : FortSv_0 = Math.floor(level_0 * 0.34)  ;FortSvLabel_0 = "S";break; // Slow
-		default: FortSv_0 = 0;FortSvLabel_0 = ""; // None
-		}
-		switch (v['class-01-Fort']) {
-            case "[[floor(@{class-1-level} * 0.5) + 2]]" : FortSv_1 = Math.floor(level_1 * 0.5)+2; FortSvLabel_1 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-1-level})+1]]"  : FortSv_1 = Math.floor((5/12)*level_1)+1;FortSvLabel_1 = "M";break; // Med
-            case "[[floor(@{class-1-level} * 0.34)]]"    : FortSv_1 = Math.floor(level_1 * 0.34)  ;FortSvLabel_1 = "S";break; // Slow
-		default: FortSv_1 = 0;FortSvLabel_1 = ""; // None
-		}
-		switch (v['class-02-Fort']) {
-            case "[[floor(@{class-2-level} * 0.5) + 2]]" : FortSv_2 = Math.floor(level_2 * 0.5)+2; FortSvLabel_2 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-2-level})+1]]"  : FortSv_2 = Math.floor((5/12)*level_2)+1;FortSvLabel_2 = "M";break; // Med
-            case "[[floor(@{class-2-level} * 0.34)]]"    : FortSv_2 = Math.floor(level_2 * 0.34)  ;FortSvLabel_2 = "S";break; // Slow
-		default: FortSv_2 = 0;FortSvLabel_2 = ""; // None
-		}
-		switch (v['class-03-Fort']) {
-            case "[[floor(@{class-3-level} * 0.5) + 2]]" : FortSv_3 = Math.floor(level_3 * 0.5)+2; FortSvLabel_3 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-3-level})+1]]"  : FortSv_3 = Math.floor((5/12)*level_3)+1;FortSvLabel_3 = "M";break; // Med
-            case "[[floor(@{class-3-level} * 0.34)]]"    : FortSv_3 = Math.floor(level_3 * 0.34)  ;FortSvLabel_3 = "S";break; // Slow
-		default: FortSv_3 = 0;FortSvLabel_3 = ""; // None
-		}
-		switch (v['class-04-Fort']) {
-            case "[[floor(@{class-4-level} * 0.5) + 2]]" : FortSv_4 = Math.floor(level_4 * 0.5)+2; FortSvLabel_4 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-4-level})+1]]"  : FortSv_4 = Math.floor((5/12)*level_4)+1;FortSvLabel_4 = "M";break; // Med
-            case "[[floor(@{class-4-level} * 0.34)]]"    : FortSv_4 = Math.floor(level_4 * 0.34)  ;FortSvLabel_4 = "S";break; // Slow
-		default: FortSv_4 = 0;FortSvLabel_4 = ""; // None
-		}
+		const getAdjustForLevel = function (formula, level){
+			if(/\[\[floor\(@{[^}]*}\s*\*\s*0.5\)\s*\+\s*2\]\]/i.test(formula)){
+				return {  save: (Math.floor(level * 0.5)+2),  label: "F" };
+			} else if(/\[\[floor\(\(5\/12\)\*@{[^}]*}\)\+1\]\]/i.test(formula)){
+				return {  save: (Math.floor((5/12)*level)+1), label: "M" };
+			} else if(/\[\[floor\(@{[^}]*}\s*\*\s*0.34\)\]\]/i.test(formula)){
+				return {  save: (Math.floor(level * 0.34)),   label: "S" };
+			}
+			return { save: 0, label: "" };
+		};
 		
-		switch (v['race-Ref']) {
-            case "[[floor(@{race-level} * 0.5) + 2]]" : RefSv_R = Math.floor(r_level * 0.5)+2; RefSvLabel_R = "F";break; // Fast
-            case "[[floor((5/12)*@{race-level})+1]]"  : RefSv_R = Math.floor((5/12)*r_level)+1;RefSvLabel_R = "M";break; // Med
-            case "[[floor(@{race-level} * 0.34)]]"    : RefSv_R = Math.floor(r_level * 0.34)  ;RefSvLabel_R = "S";break; // Slow
-		default: RefSv_R = 0;RefSvLabel_R = ""; // None
-		}
-		switch (v['class-00-Ref']) {
-            case "[[floor(@{class-0-level} * 0.5) + 2]]" : RefSv_0 = Math.floor(level_0 * 0.5)+2; RefSvLabel_0 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-0-level})+1]]"  : RefSv_0 = Math.floor((5/12)*level_0)+1;RefSvLabel_0 = "M";break; // Med
-            case "[[floor(@{class-0-level} * 0.34)]]"    : RefSv_0 = Math.floor(level_0 * 0.34)  ;RefSvLabel_0 = "S";break; // Slow
-		default: RefSv_0 = 0;RefSvLabel_0 = ""; // None
-		}
-		switch (v['class-01-Ref']) {
-            case "[[floor(@{class-1-level} * 0.5) + 2]]" : RefSv_1 = Math.floor(level_1 * 0.5)+2; RefSvLabel_1 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-1-level})+1]]"  : RefSv_1 = Math.floor((5/12)*level_1)+1;RefSvLabel_1 = "M";break; // Med
-            case "[[floor(@{class-1-level} * 0.34)]]"    : RefSv_1 = Math.floor(level_1 * 0.34)  ;RefSvLabel_1 = "S";break; // Slow
-		default: RefSv_1 = 0;RefSvLabel_1 = ""; // None
-		}
-		switch (v['class-02-Ref']) {
-            case "[[floor(@{class-2-level} * 0.5) + 2]]" : RefSv_2 = Math.floor(level_2 * 0.5)+2; RefSvLabel_2 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-2-level})+1]]"  : RefSv_2 = Math.floor((5/12)*level_2)+1;RefSvLabel_2 = "M";break; // Med
-            case "[[floor(@{class-2-level} * 0.34)]]"    : RefSv_2 = Math.floor(level_2 * 0.34)  ;RefSvLabel_2 = "S";break; // Slow
-		default: RefSv_2 = 0;RefSvLabel_2 = ""; // None
-		}
-		switch (v['class-03-Ref']) {
-            case "[[floor(@{class-3-level} * 0.5) + 2]]" : RefSv_3 = Math.floor(level_3 * 0.5)+2; RefSvLabel_3 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-3-level})+1]]"  : RefSv_3 = Math.floor((5/12)*level_3)+1;RefSvLabel_3 = "M";break; // Med
-            case "[[floor(@{class-3-level} * 0.34)]]"    : RefSv_3 = Math.floor(level_3 * 0.34)  ;RefSvLabel_3 = "S";break; // Slow
-		default: RefSv_3 = 0;RefSvLabel_3 = ""; // None
-		}
-		switch (v['class-04-Ref']) {
-            case "[[floor(@{class-4-level} * 0.5) + 2]]" : RefSv_4 = Math.floor(level_4 * 0.5)+2; RefSvLabel_4 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-4-level})+1]]"  : RefSv_4 = Math.floor((5/12)*level_4)+1;RefSvLabel_4 = "M";break; // Med
-            case "[[floor(@{class-4-level} * 0.34)]]"    : RefSv_4 = Math.floor(level_4 * 0.34)  ;RefSvLabel_4 = "S";break; // Slow
-		default: RefSv_4 = 0;RefSvLabel_4 = ""; // None
-		}
+		FortR = getAdjustForLevel(v['race-Fort'],r_level);
+		Fort0 = getAdjustForLevel(v['class-00-Fort'],level_0);
+		Fort1 = getAdjustForLevel(v['class-01-Fort'],level_1);
+		Fort2 = getAdjustForLevel(v['class-02-Fort'],level_2);
+		Fort3 = getAdjustForLevel(v['class-03-Fort'],level_3);
+		Fort4 = getAdjustForLevel(v['class-04-Fort'],level_4);
+				
+		RefR = getAdjustForLevel(v['race-Ref'],r_level);
+		Ref0 = getAdjustForLevel(v['class-00-Ref'],level_0);
+		Ref1 = getAdjustForLevel(v['class-01-Ref'],level_1);
+		Ref2 = getAdjustForLevel(v['class-02-Ref'],level_2);
+		Ref3 = getAdjustForLevel(v['class-03-Ref'],level_3);
+		Ref4 = getAdjustForLevel(v['class-04-Ref'],level_4);
 		
-		switch (v['race-Will']) {
-            case "[[floor(@{race-level} * 0.5) + 2]]" : WillSv_R = Math.floor(r_level * 0.5)+2; WillSvLabel_R = "F";break; // Fast
-            case "[[floor((5/12)*@{race-level})+1]]"  : WillSv_R = Math.floor((5/12)*r_level)+1;WillSvLabel_R = "M";break; // Med
-            case "[[floor(@{race-level} * 0.34)]]"    : WillSv_R = Math.floor(r_level * 0.34)  ;WillSvLabel_R = "S";break; // Slow
-		default: WillSv_R = 0;WillSvLabel_R = ""; // None
-		}
-		switch (v['class-00-Will']) {
-            case "[[floor(@{class-0-level} * 0.5) + 2]]" : WillSv_0 = Math.floor(level_0 * 0.5)+2; WillSvLabel_0 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-0-level})+1]]"  : WillSv_0 = Math.floor((5/12)*level_0)+1;WillSvLabel_0 = "M";break; // Med
-            case "[[floor(@{class-0-level} * 0.34)]]"    : WillSv_0 = Math.floor(level_0 * 0.34)  ;WillSvLabel_0 = "S";break; // Slow
-		default: WillSv_0 = 0;WillSvLabel_0 = ""; // None
-		}
-		switch (v['class-01-Will']) {
-            case "[[floor(@{class-1-level} * 0.5) + 2]]" : WillSv_1 = Math.floor(level_1 * 0.5)+2; WillSvLabel_1 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-1-level})+1]]"  : WillSv_1 = Math.floor((5/12)*level_1)+1;WillSvLabel_1 = "M";break; // Med
-            case "[[floor(@{class-1-level} * 0.34)]]"    : WillSv_1 = Math.floor(level_1 * 0.34)  ;WillSvLabel_1 = "S";break; // Slow
-		default: WillSv_1 = 0;WillSvLabel_1 = ""; // None
-		}
-		switch (v['class-02-Will']) {
-            case "[[floor(@{class-2-level} * 0.5) + 2]]" : WillSv_2 = Math.floor(level_2 * 0.5)+2; WillSvLabel_2 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-2-level})+1]]"  : WillSv_2 = Math.floor((5/12)*level_2)+1;WillSvLabel_2 = "M";break; // Med
-            case "[[floor(@{class-2-level} * 0.34)]]"    : WillSv_2 = Math.floor(level_2 * 0.34)  ;WillSvLabel_2 = "S";break; // Slow
-		default: WillSv_2 = 0;WillSvLabel_2 = ""; // None
-		}
-		switch (v['class-03-Will']) {
-            case "[[floor(@{class-3-level} * 0.5) + 2]]" : WillSv_3 = Math.floor(level_3 * 0.5)+2; WillSvLabel_3 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-3-level})+1]]"  : WillSv_3 = Math.floor((5/12)*level_3)+1;WillSvLabel_3 = "M";break; // Med
-            case "[[floor(@{class-3-level} * 0.34)]]"    : WillSv_3 = Math.floor(level_3 * 0.34)  ;WillSvLabel_3 = "S";break; // Slow
-		default: WillSv_3 = 0;WillSvLabel_3 = ""; // None
-		}
-		switch (v['class-04-Will']) {
-            case "[[floor(@{class-4-level} * 0.5) + 2]]" : WillSv_4 = Math.floor(level_4 * 0.5)+2; WillSvLabel_4 = "F";break; // Fast
-            case "[[floor((5/12)*@{class-4-level})+1]]"  : WillSv_4 = Math.floor((5/12)*level_4)+1;WillSvLabel_4 = "M";break; // Med
-            case "[[floor(@{class-4-level} * 0.34)]]"    : WillSv_4 = Math.floor(level_4 * 0.34)  ;WillSvLabel_4 = "S";break; // Slow
-		default: WillSv_4 = 0;WillSvLabel_4 = ""; // None
-		}
+		WillR = getAdjustForLevel(v['race-Will'],r_level);
+		Will0 = getAdjustForLevel(v['class-00-Will'],level_0);
+		Will1 = getAdjustForLevel(v['class-01-Will'],level_1);
+		Will2 = getAdjustForLevel(v['class-02-Will'],level_2);
+		Will3 = getAdjustForLevel(v['class-03-Will'],level_3);
+		Will4 = getAdjustForLevel(v['class-04-Will'],level_4);
 		
-		var FortSv_FINAL = FortSv_R + FortSv_0 + FortSv_1 + FortSv_2 + FortSv_3 + FortSv_4;
-		var RefSv_FINAL = RefSv_R + RefSv_0 + RefSv_1 + RefSv_2 + RefSv_3 + RefSv_4;
-		var WillSv_FINAL = WillSv_R + WillSv_0 + WillSv_1 + WillSv_2 + WillSv_3 + WillSv_4;
+		var FortSv_FINAL = FortR.save + Fort0.save + Fort1.save + Fort2.save + Fort3.save + Fort4.save;
+		var RefSv_FINAL = RefR.save + Ref0.save + Ref1.save + Ref2.save + Ref3.save + Ref4.save;
+		var WillSv_FINAL = WillR.save + Will0.save + Will1.save + Will2.save + Will3.save + Will4.save;
 		
-		console.log("========= Racial Base Saves :  F: [" + FortSv_R +"] R: [" + RefSv_R +"]F: [" + WillSv_R +"]");
+		//console.log("========= Racial Base Saves :  F: [" + FortSv_R +"] R: [" + RefSv_R +"] W: [" + WillSv_R +"]");
 		//console.log("=== Racial Fort Label: " +FortSvLabel_R+ "Class 0 Label: " +FortSvLabel_0+ ".");
 		//console.log("= Class 0 Saves:  F: [" + FortSv_0 +"] R: [" + RefSv_0 +"] W: [" + WillSv_0 +"]");
 		//console.log("= Class 1 Saves:  F: [" + FortSv_1 +"] R: [" + RefSv_1 +"] W: [" + WillSv_1 +"]");
@@ -16579,7 +16528,7 @@ console.log("============= Set BAB Details =============");
 		//console.log("= Class 3 Saves:  F: [" + FortSv_3 +"] R: [" + RefSv_3 +"] W: [" + WillSv_3 +"]");
 		//console.log("= Class 4 Saves:  F: [" + FortSv_4 +"] R: [" + RefSv_4 +"] W: [" + WillSv_4 +"]");
 		
-		console.log("=== Version:"+ version + ".");
+		//console.log("=== Version:"+ version + ".");
 		setAttrs({
 			'totalFSv': FortSv_FINAL,
 			'totalRSv': RefSv_FINAL,
@@ -16588,7 +16537,6 @@ console.log("============= Set BAB Details =============");
 // Console Log Here ??
     });
 });
-
 
 /* SIZE FUNCTION */
 on('change:size change:tab', function() {
@@ -16647,72 +16595,6 @@ on('change:armySize change:armyUnitCR change:armyUnitNumHD change:armyUnitHD cha
     });
 });
 
-/* SIZE FUNCTION */
-/*
-on('sheet:opened change:sizeDisplay change:size-TEMP', function() {
-//console.log("============= Pull and Get Size Information =============");
-   console.log("Setting Size Totals . . .");
-    getAttrs(['sizeDisplay'], function(v) {
-		var sizeMod = 0
-		, skillMod = 0;
-		
-		sizeMod = 
-		switch (parseInt(v['sizeDisplay'])) {
-            case 4: sizeMod = -8;skillMod = -8;break; // Colossal Size
-            case 3: sizeMod = -4;skillMod = -6;break; // Gargantuan Size
-            case 2: sizeMod = -2;skillMod = -4;break; // Huge Size
-            case 1: sizeMod = -1;skillMod = -2;break; // Large Size
-            case 0: sizeMod = 0;skillMod = 0;break; // << Medium Size
-            case -1: sizeMod = 1;skillMod = 2;break; // Small Size
-            case -2: sizeMod = 2;skillMod = 4;break; // Tiny Size
-			case -3: sizeMod = 4;skillMod = 6;break; // Diminuative Size
-			case -4: sizeMod = 8;skillMod = 8;break; // Fine Size
-		default: sizeMod = 4;
-		}
-		console.log("Hero Size BEFORE: [" + parseInt(v["sizeDisplay"]) +"]");
-		setAttrs({
-			'size_skill': skillMod,
-			'size': sizeMod
-        });
-		console.log("Hero Size AFTER: [" + parseInt(v["size"]) +"]");
-// Console Log Here ??
-    });
-});*/
-
-    /*updateSize
-    * When size attribute is changed, update CMD-size, size_display, size_skill, size_skill_double
-    */
-/*    updateSizeFromText = function () {
-        getAttrs(["size", "size_display"], function (v) {
-            var currSize = parseInt(v.size, 10) || 0,
-                sizeDisplay = v["size_display"],
-                size = 0, cmbsize = 0, skillSize = 0, doubleSkill = 0;
-            if (!sizeDisplay) { return; }
-            sizeDisplay = sizeDisplay.toLowerCase();
-            switch (sizeDisplay) {
-                case "medium": break;
-                case "colossal": size = -8; skillSize = -8; break;
-                case "gargantuan": size = -4; skillSize = -6; break;
-                case "huge": size = -2; skillSize = -4; break;
-                case "large": size = -1; skillSize = -2; break;
-                case "small": size = 1; skillSize = 2; break;
-                case "tiny": size = 2; skillSize = 4; break;
-                case "diminutive": size = 4; skillSize = 6; break;
-                case "fine": size = 8; skillSize = 8; break;
-                default:
-                    return;
-            }
-            doubleSkill = 2 * skillSize;
-            cmbsize = size * -1;
-            if (size !== currSize) {
-                setAttrs({ "size": size, "size_skill": skillSize, "CMD-size": cmbsize, "size_skill_double": doubleSkill });
-				//do not call handlesize change - this is the first update from compendium
-            }
-
-        });
-    }, */
-
-
 on('sheet:opened change:tab change:race-level change:class-0-level change:class-1-level change:class-2-level  change:class-3-level change:class-4-level', function() {
 // (@{class-0-level} + [[ @{class-1-level} ]] + [[ @{class-2-level} ]] + [[ @{class-3-level} ]] + [[ @{class-4-level} ]])
 // change:class-0-level change:class-1-level change:class-2-level  change:class-3-level change:class-4-level
@@ -16730,68 +16612,41 @@ on('sheet:opened change:tab change:race-level change:class-0-level change:class-
 // Console Log Here ??
     });
 });
-/* SET Armor/Shield Variables 
-on('sheet:opened change:armor-equipped change:armor-acbonus change:armor-max-dex change:armor-acp change:armor-spell-fail change:shield-equipped change:shield-acbonus change:shield-max-dex change:shield-acp change:shield-spell-fail change:max-dex change:DEX-mod', function() {
-//console.log("============= Pull and SET Armor/Shield Attributes =============");
-//console.log("Setting Armor and Shield Attributes . . .");
-    getAttrs(['armor-equipped', 'armor-acbonus', 'armor-max-dex', 'armor-acp', 'armor-spell-fail', 'shield-equipped', 'shield-acbonus', 'shield-max-dex', 'shield-acp', 'shield-spell-fail', 'max-dex', 'DEX-mod'], function(values) {	
-		//console.log("isArmor Equipped: [" + parseInt(values["armor-equipped"]) + "] Armor AC: [" + parseInt(values["armor-acbonus"]) + "] Armor Max Dex [" + parseInt(values["armor-max-dex"]) + "]");
-		//console.log("isShield Equipped: [" + parseInt(values["shield-equipped"]) + "] Shield AC: [" + parseInt(values["shield-acbonus"]) + "] Shield Max Dex [" + parseInt(values["shield-max-dex"]) + "]");
-		//console.log("Armor ACP: [" + parseInt(values["armor-acp"]) + "] Armor Spl Fail: [" + parseInt(values["armor-spell-fail"]) + "]");
-		//console.log("SHield ACP: [" + parseInt(values["shield-acp"]) + "] Shield Spl Fail: [" + parseInt(values["shield-spell-fail"]) + "]");
-		
-		var dexMod = parseInt(values["DEX-mod"]);
-			maxDex = parseInt(values["max-dex"]);
-			console.log("DEX MOD: [" +dexMod+ "] Max DEX: [" +maxDex+ "]")
-		var dexAC = Math.min(dexMod, maxDex); // Error Needs a way to take the lowest in order to calculate this in the WorkerScripts
-			totACP = (parseInt(values["armor-acp"])*parseInt(values["armor-equipped"])) + (parseInt(values["shield-acp"])*parseInt(values["shield-equipped"]));
-			totSplFail = (parseInt(values["armor-spell-fail"])*parseInt(values["armor-equipped"])) + (parseInt(values["shield-spell-fail"])*parseInt(values["shield-equipped"]));
-			
-			//console.log("Parsing values as integers . . .");
-			//console.log("SET the Total Max Dex from Armor: " + Math.min(dexMod,maxDex));
-			//console.log("SET the Total ACP from Armor: " +totACP);
-			//console.log("SET the Total Spell Failure from Armor: " +totSplFail);
-// ((@{armor-spell-fail}*@{armor-equipped})+(@{shield-spell-fail}*@{shield-equipped}))
-        setAttrs({
-			'AC-DEX': dexAC,
-			'spell-fail': totSplFail  // Not being set..... Why?
-        });
-// Console Log Here ??
-    });
-});*/
 
 /* SET Armor/Shield Variables */
-on('change:armor-equipped change:armor-max-dex change:armor-spell-fail change:shield-equipped change:shield-max-dex change:shield-spell-fail change:max-dex change:DEX-mod change:max-dex-source', function () {
+on('change:recalc1 change:armor-equipped change:armor-max-dex change:armor-spell-fail change:shield-equipped change:shield-max-dex change:shield-spell-fail change:max-dex change:DEX-mod change:max-dex-source change:acp-source change:STR-mod change:armor-acbonus change:armor-acp change:shield-acp change:shield-acbonus change:size change:ac-dodge change:ac-natural change:ac-deflect change:ac-misc change:ac-temp change:ac-penalty change:condition-Wound change:ac-cond-1 change:ac-cond-2', function () {
 	//console.log("============= Pull and SET Armor/Shield Attributes =============");
 	//console.log("Setting Armor and Shield Attributes . . .");
-	getAttrs(['armor-equipped', 'armor-max-dex', 'armor-acp', 'armor-spell-fail', 'shield-equipped', 'shield-max-dex', 'shield-acp', 'shield-spell-fail', 'DEX-mod', 'AC-DEX', 'CMD-DEX', 'spell-fail', 'acp', 'max-dex-source'], function (values) {
+	getAttrs(['armor-equipped', 'armor-max-dex', 'armor-acp', 'armor-spell-fail', 'shield-equipped', 'shield-max-dex', 'shield-acp', 'shield-spell-fail', 'DEX-mod', 'AC-DEX', 'CMD-DEX', 'spell-fail', 'acp', 'max-dex-source', 'acp-source', 'DEX-mod', 'STR-mod', 'armor-acbonus', 'shield-acbonus', 'size', 'ac-dodge', 'ac-natural', 'ac-deflect', 'ac-misc', 'ac-temp', 'ac-penalty', 'condition-Wound', 'ac-cond-1', 'ac-cond-2'], function (values) {
+	
 		// console.log("Parsing values as integers . . .");
 		var dexMod = parseInt(values["DEX-mod"]) // This cannot have a || 9999 default value or it messes EVERYTHING up.
-		, maxDex = parseInt(values["max-dex"]) || 9999
-		, armorEquipped = parseInt(values["armor-equipped"]) || 0
-		, shieldEquipped = parseInt(values["shield-equipped"]) || 0
-		//, armorACP = parseInt(values["armor-acp"]) || 0
-		//, shieldACP = parseInt(values["shield-acp"]) || 0
-		//, totACP = armorACP * armorEquipped + shieldACP * shieldEquipped
-		, armorSplFail = parseInt(values["armor-spell-fail"]) || 0
-		, shieldSplFail = parseInt(values["shield-spell-fail"]) || 0
-		, totSplFail = armorSplFail * armorEquipped + shieldSplFail * shieldEquipped
-		//, armorMaxDex = parseInt(values["armor-max-dex"] * armorEquipped)
-		//, shieldMaxDex = parseInt(values["shield-max-dex"] * shieldEquipped)
-		//, totMaxDex = armorMaxDex + shieldMaxDex
-		, curACDex = parseInt(values["AC-DEX"]) || 0
-		, curCMDDex = parseInt(values["CMD-DEX"]) || 0
-		, curSplFail = parseInt(values["spell-fail"]) || 0
-		//, curACP = parseInt(values["acp"]) || 0
-		, setter = {};
-		//console.log("SETARM: TOTAL MAX DEX: [" + totMaxDex + "]");
+			, maxDex = parseInt(values["max-dex"]) || 9999
+			, armorEquipped = parseInt(values["armor-equipped"]) || 0
+			, shieldEquipped = parseInt(values["shield-equipped"]) || 0 
+			, armorAC = armorEquipped * parseInt(values["armor-acbonus"]) || 0
+			, shieldAC = shieldEquipped * parseInt(values["shield-acbonus"]) || 0
+			//, armorACP = parseInt(values["armor-acp"]) || 0
+			//, shieldACP = parseInt(values["shield-acp"]) || 0
+			//, totACP = armorACP * armorEquipped + shieldACP * shieldEquipped
+			, armorSplFail = parseInt(values["armor-spell-fail"]) || 0
+			, shieldSplFail = parseInt(values["shield-spell-fail"]) || 0
+			, totSplFail = armorSplFail * armorEquipped + shieldSplFail * shieldEquipped
+			//, armorMaxDex = parseInt(values["armor-max-dex"] * armorEquipped)
+			//, shieldMaxDex = parseInt(values["shield-max-dex"] * shieldEquipped)
+			//, totMaxDex = armorMaxDex + shieldMaxDex
+			, curACDex = parseInt(values["AC-DEX"]) || 0
+			, curCMDDex = parseInt(values["CMD-DEX"]) || 0
+			, curSplFail = parseInt(values["spell-fail"]) || 0
+			//, curACP = parseInt(values["acp"]) || 0
+			, setter = {};
 		console.log("SETARM: isArmor Equipped: [" + armorEquipped + "] Armor Max Dex [" + parseInt(values["armor-max-dex"] * armorEquipped) + "]");
 		console.log("SETARM: isShield Equipped: [" + shieldEquipped + "] Shield Max Dex [" + parseInt(values["shield-max-dex"] * shieldEquipped) + "]");
 		console.log("SETARM: Armor ACP : [ -- ] Armor Spl Fail : [" + armorSplFail + "]");
 		console.log("SETARM: Shield ACP: [ -- ] Shield Spl Fail: [" + shieldSplFail + "]\n===============");
 		console.log("SETARM: Total Spell Fail: [" + totSplFail + "]\n===============");
 		
-		
+// (10 + [[ @{AC-armor} ]] + [[ @{AC-shield} ]] + [[ @{AC-DEX} ]] + [[ @{size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-natural} ]] + [[ @{AC-deflect} ]] + [[ @{AC-misc} ]] + [[ @{AC-temp} ]] + [[ @{AC-penalty} ]] - [[ @{condition-blinded} ]] - [[ @{condition-cowering} ]] - [[ @{condition-stunned} ]] - [[ @{condition-pinned} ]] - [[ @{condition-Wounds} ]])		
 		console.log("SETARM: DEX MOD: [" + dexMod + "] Max DEX: [" + maxDex + "]");
 		var dexAC = Math.min(dexMod, maxDex);
 		//console.log("SETARM: AC-DEX: " + dexAC);+
@@ -16812,10 +16667,18 @@ on('change:armor-equipped change:armor-max-dex change:armor-spell-fail change:sh
 		 default: maxDex=dexMod;
 		}
 		
+		switch (parseInt(values["acp-source"])){
+			case 0: acp=0;break; // None
+			case 1: acp=(parseInt(values["armor-acp"]) * parseInt(values["armor-equipped"])) + (parseInt(values["shield-acp"]) * parseInt(values["shield-equipped"]));break; // Armor & Shield (Default)
+			case 2: acp=-3;break; // Medium Load
+			case 3: acp=-6;break; // Heavy Load
+		 default: acp=0;
+		}
+		
 		var finalMaxDex = Math.min(dexMod, maxDex);
 		//console.log("SETARM: SET the Total Max Dex from Armor: " + dexAC);
 		//console.log("SETARM: SET the Total ACP from Armor: " + totACP);
-		console.log("SETARM: SET the Total Spell Failure from Armor: " + armorSplFail + "+" + shieldSplFail +"="+ armorSplFail+shieldSplFail +".");
+		console.log("SETARM: SET the Total Spell Failure from Armor: " + armorSplFail + "+" + shieldSplFail +"="+ (armorSplFail+shieldSplFail) +".");
 		
 		//if (curACDex !== dexAC) { setter['AC-DEX'] = maxDex; }
 		//if (curCMDDex !== dexAC) { setter['CMD-DEX'] = maxDex; }
@@ -16825,56 +16688,94 @@ on('change:armor-equipped change:armor-max-dex change:armor-spell-fail change:sh
 		if (_.size(setter)) {
 			setAttrs(setter, { silent: true });
 		}
+
 		setAttrs({
 			'max-dex': maxDex, // Display the ACTUAL MAX DEX of the EQUIPED ITEM
 			'AC-DEX': finalMaxDex,
 			'CMD-DEX': finalMaxDex,
-			'spell-fail': totSplFail
-		});
-		// Console Log Here ??
-	});
-});
-/* Disabled Armor Fields */
-on('change:acp-source change:DEX-mod change:STR-mod change:armor-equipped change:armor-acbonus change:armor-acp change:shield-acp change:shield-equipped change:shield-acbonus', function() {
-console.log("============= Pull and SET Armor/Shield Attributes =============");
-   //console.log("Setting Armor and Shield Attributes . . .");
-    getAttrs(['acp-source', 'DEX-mod', 'STR-mod', 'armor-equipped', 'armor-acbonus', 'armor-acp', 'shield-equipped', 'shield-acbonus', ,'shield-acp'], function(values) {	
-		var dexMod = parseInt(values["DEX-mod"]); // This cannot have a || 9999 default value or it messes EVERYTHING up.
-		//console.log("isArmor Equipped: [" + parseInt(values["armor-equipped"]) + "] Armor AC: [" + parseInt(values["armor-acbonus"]) + "] Armor Max Dex [" + parseInt(values["armor-max-dex"]) + "]");
-		//console.log("isShield Equipped: [" + parseInt(values["shield-equipped"]) + "] Shield AC: [" + parseInt(values["shield-acbonus"]) + "] Shield Max Dex [" + parseInt(values["shield-max-dex"]) + "]");
-
-	//	switch (parseInt(values["max-dex-source"])){
-	//		case 9999: maxDex=dexMod;break; // NONE
-	//		case 0: maxDex=parseInt(values["armor-max-dex"]) * parseInt(values["armor-equipped"]);break; // Armor
-	//		case 1: maxDex=parseInt(values["shield-max-dex"]) * parseInt(values["shield-equipped"]);break; // Shield
-	//		case 2: maxDex=3;break; // Medium Load
-	//		case 3: maxDex=1;break; // Heavy Load
-	//	 default: maxDex=dexMod;
-	//	}
-		
-		switch (parseInt(values["acp-source"])){
-			case 0: acp=0;break; // None
-			case 1: acp=(parseInt(values["armor-acp"]) * parseInt(values["armor-equipped"])) + (parseInt(values["shield-acp"]) * parseInt(values["shield-equipped"]));break; // Armor & Shield (Default)
-			case 2: acp=-3;break; // Medium Load
-			case 3: acp=-6;break; // Heavy Load
-		 default: acp=0;
-		}
-		var armorAC = parseInt(values["armor-acbonus"]) * parseInt(values["armor-equipped"]);
-			shieldAC = parseInt(values["shield-acbonus"]) * parseInt(values["shield-equipped"]);
-			totACP = (parseInt(values["armor-acp"]) * parseInt(values["armor-equipped"])) + (parseInt(values["shield-acp"]) * parseInt(values["shield-equipped"]));
-		//	console.log("Parsing values as integers . . . " +armorAC);
-		//	console.log("SET the Total Max Dex from Armor: " +maxDex);
-
-        setAttrs({
+			'spell-fail': totSplFail,
 			'AC-armor': armorAC,
 			'AC-shield': shieldAC,
 		//	'max-dex': maxDex,
 			'totalACP': acp,
-			'acp': acp // Page Display
-        });
-// Console Log Here ??
-    });
+			'acp': acp, // Page Display
+		});
+		// Console Log Here ??
+	});
 });
+
+on('change:recalc1 change:bab change:armor-equipped change:shield-equipped change:DEX-mod change:STR-mod change:armor-acbonus change:shield-acbonus change:max-dex change:size change:AC-dodge change:AC-natural change:AC-deflect change:ac-misc change:AC-temp change:ac-Penalty change:condition-Wounds change:CMD-misc change:CMD-temp change:ac-cond-1 change:ac-cond-2 change:toggle-Blinded change:toggle-Cowering change:toggle-Stunned change:toggle-Pinned change:condition-Drained change:bab_ext', function () {
+	//console.log("============= Pull and SET Armor/Shield Attributes =============");
+	//console.log("Setting Armor and Shield Attributes . . .");
+	getAttrs(['armor-equipped', 'shield-equipped', 'DEX-mod', 'AC-DEX', 'CMD-DEX', 'DEX-mod', 'STR-mod', 'armor-acbonus', 'shield-acbonus', 'size', 'AC-dodge', 'AC-natural', 'AC-deflect', 'AC-misc', 'AC-temp', 'AC-penalty', 'condition-Wounds',  'CMD-misc', 'CMD-temp', 'ac-cond-1', 'ac-cond-2', 'bab_ext', 'toggle-Blinded', 'toggle-Cowering', 'toggle-Stunned', 'toggle-Pinned', 'condition-Drained'], function (values) {
+	
+		// console.log("Parsing values as integers . . .");
+		var dexMod = parseInt(values["DEX-mod"]), strMod = parseInt(values["STR-mod"]),
+			armorEquipped = parseInt(values["armor-equipped"]) || 0, shieldEquipped = parseInt(values["shield-equipped"]) || 0,
+			armorAC = armorEquipped * parseInt(values["armor-acbonus"]) || 0, shieldAC = shieldEquipped * parseInt(values["shield-acbonus"]) || 0,
+			acDex = parseInt(values["AC-DEX"]) || 0,
+			size = parseInt(values["size"]) || 0,
+			acDodge = parseInt(values["AC-dodge"]),
+			acNat = parseInt(values["AC-natural"]) || 0,
+			acDeflect = parseInt(values["AC-deflect"]) || 0,
+			acMisc = parseInt(values["AC-misc"]) || 0,
+			acTemp = parseInt(values["AC-temp"]) || 0,
+			acPen = parseInt(values["AC-penalty"]) || 0,
+			isWounded = parseInt(values["condition-Wounds"]) || 0,
+			isDrained = parseInt(values["condition-Drained"]) || 0,
+			cmdMisc = parseInt(values["CMD-misc"]) || 0,
+			cmdTemp = parseInt(values["CMD-temp"]) || 0,
+			bab = parseInt(values["bab_ext"] || 0);
+		var acCond1 = 0+isWounded+isDrained, acCond2 = 0, touchCond1 = 0+isWounded+isDrained, touchCond2 = 0, ffCond1 = 0+isWounded+isDrained, ffCond2 = 0, cmdCond1 = 0+isWounded+isDrained, cmdCond2 = 0, ffcmdCond1 = 0+isWounded+isDrained, ffcmdCond2 = 0;
+			
+		console.log("AC: 10 " + " armor: " + armorAC + " shield: " + shieldAC + " dex: " + acDex + " size: " + size + " dodge: " + acDodge + " deflect: " + acDeflect + " nat: " + acNat + " misc: " + acMisc + " temp: " + acTemp + " penalty: " + acPen + " wounds: " + isWounded + ".");
+		var ac = 10 + armorAC + shieldAC + acDex + size +  acDodge + acDeflect + acNat + acMisc + acTemp + acPen;
+		var touch = ac - (armorAC + shieldAC);
+		var ffac = ac - (acDex + acDodge);
+// CMD variables  10 + bab + strMod ....
+		var cmd = 10 + 7 + strMod + dexMod + (-1 * size) + acDodge + acDeflect + cmdMisc + cmdTemp + acPen;
+		console.log("SETARM: AC: [" + ac + "]");
+		var ffcmd = cmd - (dexMod + acDodge);
+		//console.log("SETARM: TOUCH: [" + touch + "]");
+		//console.log("SETARM: FF AC: [" + ffac + "]");
+		console.log("CMD: 10 + bab + " + " str: " + strMod + " dex: " + dexMod + " dex: " + acDex + " size: " + (-1 * size) + " deflect: " + acDeflect + " misc: " + cmdMisc + " temp: " + cmdTemp + " penalty: " + acPen + " wounds: " + isWounded + ".");
+		
+	// Defensive Buffs/Debuffs
+		if(parseInt(values["toggle-Blinded"]) === 1) { acCond1 -= 2; touchCond1 -= 2; ffCond1 -= 2;}
+		if(parseInt(values["toggle-Cowering"]) === 1) { acCond1 -= 2; touchCond1 -= 2; ffCond1 -= 2;}
+		if(parseInt(values["toggle-Stunned"]) === 1) { acCond1 -= 2; touchCond1 -= 2; ffCond1 -= 2;}
+		if(parseInt(values["toggle-Pinned"]) === 1) { acCond1 -= 4; touchCond1 -= 4; ffCond1 -= 4;}
+	// Defensive Buffs/Debuffs
+		
+		setAttrs({
+// Defense Totals -------
+// cmd (10 + [[ @{bab} ]] + [[ @{STR-mod} ]] + [[ @{DEX-mod} ]] + [[ @{CMD-size} ]] + [[ @{AC-dodge} ]] + [[ @{AC-deflect} ]] + [[ @{CMD-misc} ]] + [[ @{CMD-temp} ]] + [[ @{AC-penalty} ]] + [[ @{condition-drained} ]] - [[ @{condition-Wounds} ]])
+// ffcmb value="(10 + [[ @{bab} ]] + [[ @{STR-mod} ]] + [[ @{FF-DEX} ]] + [[ @{CMD-size} ]] + [[ @{AC-deflect} ]] + [[ @{CMD-misc} ]] + [[ @{CMD-temp} ]] + [[ @{AC-penalty} ]] + [[ @{condition-drained} ]] - [[ @{condition-Wounds} ]])"
+			'ac-cond-1': acCond1,
+			'touchac-cond-1': touchCond1,
+			'ffac-cond-1': ffCond1,
+			'cmd-cond-1': cmdCond1, 'cmd-cond-2': cmdCond2, 'ffcmd-cond-1': ffcmdCond1, 'ffcmd-cond-2': ffcmdCond2, 
+			'ac': ac+acCond1+acCond2,
+			'touch': touch+touchCond1+touchCond2,
+			'flat-footed': ffac+ffCond1+ffCond2, //+ acDeflect + cmdMisc + cmdTemp + acPen + isWounded + parseInt(values["cmd-cond-1"]) + parseInt(values["cmd-cond-2"])
+			'CMD': cmd+cmdCond1+cmdCond2,
+			'ff-cmd': ffcmd+ffcmdCond1+ffcmdCond1
+		});
+		// Console Log Here ??
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Get and Set Spell Attributes */
 on('change:class-0-level change:spellclass-0-name change:spellclass-0-level change:spellclass-0-level-misc change:Concentration-0-ability change:Concentration-0-misc change:APP-mod change:STR-mod change:DEX-mod change:CON-mod change:INT-mod change:WIS-mod change:CHA-mod change:condition-Wounds', function() {
@@ -17304,7 +17205,7 @@ var UpdateSkill = function(skill){
     getAttrs(['APP-mod', 'size_mod', 'STR-mod', 'DEX-mod', 'CON-mod', 'INT-mod', 'WIS-mod', 'CHA-mod', 'fly-maneuverability', 'acp', skill+'-cs', skill+'-ranks', skill+'-ability', skill+'-racial', skill+'-feat', skill+'-item', skill+'-misc', 'size_skill', 'use_mnvr'], function(values) {    
 
 		var abil = 0, skillTot = 0; // Empty Declrations for placeholder/default values
-		var SkillSize = parseInt(values["size_skill"],10) || 0,
+		var SkillSize = 0,
 		    cs        = parseInt(values[skill+"-cs"],10) || 0,
 		    ranks     = parseInt(values[skill+"-ranks"],10) || 0, mnvr = parseInt(values["fly-maneuverability"],10) || 0;
 		var useMnvr   = parseInt(values["use_mnvr"]);
@@ -17322,8 +17223,9 @@ var UpdateSkill = function(skill){
             case 6: abil = parseInt(values["CHA-mod"]) || 0;break; // Charisma Mod    
         }
 		
-		if(_.contains(['stealth'],skill.toLowerCase())){ SkillSize *= 2; }
-		if(_.contains(['fly'],skill.toLowerCase())){ SkillSize += mnvr; }
+		if(_.contains(['stealth'],skill.toLowerCase())){ SkillSize = parseInt(values["size_skill"]) * 2; }
+		if(_.contains(['fly'],skill.toLowerCase())){ SkillSize = parseInt(values["size_skill"]) + mnvr; }
+		if(_.contains(['swim'],skill.toLowerCase())){ SkillSize = parseInt(values["size_skill"]); }
 		if(useMnvr === 1) {if(_.contains(['swim'],skill.toLowerCase())){ SkillSize += mnvr; }}
 		
 		console.log(" ===== Mnvr+Size Size : "  + SkillSize+"+"+mnvr+"="+(SkillSize+mnvr) + ".");
@@ -17356,21 +17258,21 @@ on('change:toggle-Sickened', _.bind(UpdateSkill,{},'Sickened'));
 on('change:toggle-Stunned', _.bind(UpdateSkill,{},'Stunned'));
 
 /* Skills Calculation -- Normal Skills change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod*/ 
-on('change:fly-maneuverability change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:acrobatics-cs change:acrobatics-ranks change:acrobatics-ability change:acrobatics-racial change:acrobatics-feat change:acrobatics-item change:acp change:acrobatics-misc change:acrobatics-cond-1 change:acrobatics-cond-2', _.bind(UpdateSkill,{},'Acrobatics'));
+on('change:recalc1 change:fly-maneuverability change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:acrobatics-cs change:acrobatics-ranks change:acrobatics-ability change:acrobatics-racial change:acrobatics-feat change:acrobatics-item change:acp change:acrobatics-misc change:acrobatics-cond-1 change:acrobatics-cond-2', _.bind(UpdateSkill,{},'Acrobatics'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:appraise-cs change:appraise-ranks change:appraise-ability change:appraise-racial change:appraise-feat change:appraise-item change:acp change:appraise-misc change:appraise-cond-1 change:appraise-cond-2', _.bind(UpdateSkill,{},'Appraise'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:artistry-cs change:artistry-ranks change:artistry-ability change:artistry-racial change:artistry-feat change:artistry-item change:acp change:artistry-misc change:artistry-cond-1 change:artistry-cond-2', _.bind(UpdateSkill,{},'Artistry'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:bluff-cs change:bluff-ranks change:bluff-ability change:bluff-racial change:bluff-feat change:bluff-item change:acp change:bluff-misc change:bluff-cond-1 change:bluff-cond-2', _.bind(UpdateSkill,{},'Bluff'));
-on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:climb-cs change:climb-ranks change:climb-ability change:climb-racial change:climb-feat change:climb-item change:acp change:climb-misc change:climb-cond-1 change:climb-cond-2', _.bind(UpdateSkill,{},'Climb'));
+on('change:recalc1 change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:climb-cs change:climb-ranks change:climb-ability change:climb-racial change:climb-feat change:climb-item change:acp change:climb-misc change:climb-cond-1 change:climb-cond-2', _.bind(UpdateSkill,{},'Climb'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:craft-cs change:craft-ranks change:craft-ability change:craft-racial change:craft-feat change:craft-item change:acp change:craft-misc change:craft-cond-1 change:craft-cond-2', _.bind(UpdateSkill,{},'Craft'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:craft2-cs change:craft2-ranks change:craft2-ability change:craft2-racial change:craft2-feat change:craft2-item change:acp change:craft2-misc change:craft2-cond-1 change:craft2-cond-2', _.bind(UpdateSkill,{},'Craft2'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:craft3-cs change:craft3-ranks change:craft3-ability change:craft3-racial change:craft3-feat change:craft3-item change:acp change:craft3-misc change:craft3-cond-1 change:craft3-cond-2', _.bind(UpdateSkill,{},'Craft3'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:diplomacy-cs change:diplomacy-ranks change:diplomacy-ability change:diplomacy-racial change:diplomacy-feat change:diplomacy-item change:acp change:diplomacy-misc change:diplomacy-cond-1 change:diplomacy-cond-2', _.bind(UpdateSkill,{},'Diplomacy'));
-on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:disable-device-cs change:disable-device-ranks change:disable-device-ability change:disable-device-racial change:disable-device-feat change:disable-device-item change:acp change:disable-device-misc change:disable-device-cond-1 change:disable-device-cond-2', _.bind(UpdateSkill,{},'Disable-Device'));
+on('change:recalc1 change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:disable-device-cs change:disable-device-ranks change:disable-device-ability change:disable-device-racial change:disable-device-feat change:disable-device-item change:acp change:disable-device-misc change:disable-device-cond-1 change:disable-device-cond-2', _.bind(UpdateSkill,{},'Disable-Device'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:disguise-cs change:disguise-ranks change:disguise-ability change:disguise-racial change:disguise-feat change:disguise-item change:acp change:disguise-misc change:disguise-cond-1 change:disguise-cond-2', _.bind(UpdateSkill,{},'Disguise'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:Dreamweaving-cs change:Dreamweaving-ranks change:Dreamweaving-ability change:Dreamweaving-racial change:Dreamweaving-feat change:Dreamweaving-item change:acp change:Dreamweaving-misc change:dreamweaving-cond-1 change:dreamweaving-cond-2', _.bind(UpdateSkill,{},'Dreamweaving'));
-on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:escape-artist-cs change:escape-artist-ranks change:escape-artist-ability change:escape-artist-racial change:escape-artist-feat change:escape-artist-item change:acp change:escape-artist-misc change:escape-artist-cond-1 change:escape-artist-cond-2', _.bind(UpdateSkill,{},'Escape-Artist'));
+on('change:recalc1 change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:escape-artist-cs change:escape-artist-ranks change:escape-artist-ability change:escape-artist-racial change:escape-artist-feat change:escape-artist-item change:acp change:escape-artist-misc change:escape-artist-cond-1 change:escape-artist-cond-2', _.bind(UpdateSkill,{},'Escape-Artist'));
 // Fly Size Test
-on('change:fly-maneuverability change:size_skill change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:fly-cs change:fly-ranks change:fly-ability change:fly-racial change:fly-feat change:fly-item change:acp change:fly-misc change:fly-cond-1 change:fly-cond-2', _.bind(UpdateSkill,{},'Fly'));
+on('change:recalc1 change:fly-maneuverability change:size_skill change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:fly-cs change:fly-ranks change:fly-ability change:fly-racial change:fly-feat change:fly-item change:acp change:fly-misc change:fly-cond-1 change:fly-cond-2', _.bind(UpdateSkill,{},'Fly'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:heal-cs change:heal-ranks change:heal-ability change:heal-racial change:heal-feat change:heal-item change:acp change:heal-misc change:heal-cond-1 change:heal-cond-2', _.bind(UpdateSkill,{},'Heal'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:hypnosis-cs change:hypnosis-ranks change:hypnosis-ability change:hypnosis-racial change:hypnosis-feat change:hypnosis-item change:acp change:hypnosis-misc change:hypnosis-cond-1 change:hypnosis-cond-2', _.bind(UpdateSkill,{},'Hypnosis'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:handle-animal-cs change:handle-animal-ranks change:handle-animal-ability change:handle-animal-racial change:handle-animal-feat change:heal-item change:acp change:handle-animal-misc change:handle-animal-cond-1 change:handle-animal-cond-2', _.bind(UpdateSkill,{},'Handle-Animal'));
@@ -17394,14 +17296,14 @@ on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod c
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:profession-cs change:profession-ranks change:profession-ability change:profession-racial change:profession-feat change:perform-item change:acp change:profession-misc change:profession-cond-1 change:profession-cond-2', _.bind(UpdateSkill,{},'Profession'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:profession2-cs change:profession2-ranks change:profession2-ability change:profession2-racial change:profession2-feat change:perform2-item change:acp change:profession2-misc change:profession2-cond-1 change:profession2-cond-2', _.bind(UpdateSkill,{},'Profession2'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:profession3-cs change:profession3-ranks change:profession3-ability change:profession3-racial change:profession3-feat change:perform3-item change:acp change:profession3-misc change:profession3-cond-1 change:profession3-cond-2', _.bind(UpdateSkill,{},'Profession3'));
-on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:ride-cs change:ride-ranks change:ride-ability change:ride-racial change:ride-feat change:ride-item change:acp change:ride-misc change:ride-cond-1 change:ride-cond-2', _.bind(UpdateSkill,{},'Ride'));
+on('change:recalc1 change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:ride-cs change:ride-ranks change:ride-ability change:ride-racial change:ride-feat change:ride-item change:acp change:ride-misc change:ride-cond-1 change:ride-cond-2', _.bind(UpdateSkill,{},'Ride'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:sense-motive-cs change:sense-motive-ranks change:sense-motive-ability change:sense-motive-racial change:sense-motive-feat change:sense-motive-item change:acp change:sense-motive-misc change:sense-motive-cond-1 change:sense-motive-cond-2', _.bind(UpdateSkill,{},'Sense-Motive'));
-on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:sleight-of-hand-cs change:sleight-of-hand-ranks change:sleight-of-hand-ability change:sleight-of-hand-racial change:sleight-of-hand-feat change:sleight-of-hand-item change:acp change:sleight-of-hand-misc change:sleight-of-hand-cond-1 change:sleight-of-hand-cond-2', _.bind(UpdateSkill,{},'Sleight-of-Hand'));
+on('change:recalc1 change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:sleight-of-hand-cs change:sleight-of-hand-ranks change:sleight-of-hand-ability change:sleight-of-hand-racial change:sleight-of-hand-feat change:sleight-of-hand-item change:acp change:sleight-of-hand-misc change:sleight-of-hand-cond-1 change:sleight-of-hand-cond-2', _.bind(UpdateSkill,{},'Sleight-of-Hand'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:spellcraft-cs change:spellcraft-ranks change:spellcraft-ability change:spellcraft-racial change:spellcraft-feat change:spellcraft-item change:acp change:spellcraft-misc change:spellcraft-cond-1 change:spellcraft-cond-2', _.bind(UpdateSkill,{},'Spellcraft'));
-on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:stealth-cs change:stealth-ranks change:stealth-ability change:stealth-racial change:stealth-feat change:stealth-item change:acp change:stealth-misc change:size_skill change:stealth-cond-1 change:stealth-cond-2', _.bind(UpdateSkill,{},'Stealth'));
+on('change:recalc1 change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:stealth-cs change:stealth-ranks change:stealth-ability change:stealth-racial change:stealth-feat change:stealth-item change:acp change:stealth-misc change:size_skill change:stealth-cond-1 change:stealth-cond-2', _.bind(UpdateSkill,{},'Stealth'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:survival-cs change:survival-ranks change:survival-ability change:survival-racial change:survival-feat change:survival-item change:acp change:survival-misc change:survival-cond-1 change:survival-cond-2', _.bind(UpdateSkill,{},'Survival'));
-on('change:use_mnvr change:fly-maneuverability change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:swim-cs change:swim-ranks change:swim-ability change:swim-racial change:swim-feat change:swim-item change:acp change:swim-misc change:size_skill change:swim-cond-1 change:swim-cond-2', _.bind(UpdateSkill,{},'Swim'));
-on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:use-magic-device-cs change:use-magic-device-ranks change:use-magic-device-ability change:use-magic-device-racial change:use-magic-device-feat change:use-magic-device-item change:acp change:use-magic-device-misc change:use-magic-device-cond-1 change:use-magic-device-cond-2', _.bind(UpdateSkill,{},'Use-Magic-Device'));
+on('change:recalc1 change:use_mnvr change:fly-maneuverability change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:swim-cs change:swim-ranks change:swim-ability change:swim-racial change:swim-feat change:swim-item change:acp change:swim-misc change:size_skill change:swim-cond-1 change:swim-cond-2', _.bind(UpdateSkill,{},'Swim'));
+on('change:recalc1 change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:use-magic-device-cs change:use-magic-device-ranks change:use-magic-device-ability change:use-magic-device-racial change:use-magic-device-feat change:use-magic-device-item change:acp change:use-magic-device-misc change:use-magic-device-cond-1 change:use-magic-device-cond-2', _.bind(UpdateSkill,{},'Use-Magic-Device'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:misc-skill-0-cs change:misc-skill-0-ranks change:misc-skill-0-ability change:misc-skill-0-racial change:misc-skill-0-feat change:misc-skill-0-item change:acp change:misc-skill-0-misc change:misc-skill-0-cond-1 change:misc-skill-0-cond-2', _.bind(UpdateSkill,{},'Misc-Skill-0'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:misc-skill-1-cs change:misc-skill-1-ranks change:misc-skill-1-ability change:misc-skill-1-racial change:misc-skill-1-feat change:misc-skill-1-item change:acp change:misc-skill-1-misc change:misc-skill-1-cond-1 change:misc-skill-1-cond-2', _.bind(UpdateSkill,{},'Misc-Skill-1'));
 on('change:app-mod change:str-mod change:dex-mod change:con-mod change:int-mod change:wis-mod change:cha-mod change:misc-skill-2-cs change:misc-skill-2-ranks change:misc-skill-2-ability change:misc-skill-2-racial change:misc-skill-2-feat change:misc-skill-2-item change:acp change:misc-skill-2-misc change:misc-skill-2-cond-1 change:misc-skill-2-cond-2', _.bind(UpdateSkill,{},'Misc-Skill-2'));
