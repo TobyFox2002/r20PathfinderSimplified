@@ -1,4 +1,7 @@
 /* Override Controls */
+body {
+	font-size: 13px !important;
+}
 /* Added in in Toby's Custom Sheet to provide support for all browsers with styled repeating sections. */
 /* This MUST BE AT THE TOP of the style sheet file. */
 .repcontainer .repitem .itemcontrol {z-index: 99999 !important;} /* Force delete button to top */
@@ -56,6 +59,15 @@
 /*.sheet-noshow:checked ~.sheet-dnd {display: none !important;}  IMPORTANT  
 .sheet-noshow:not(:checked)~.sheet-dnd {display: inline !important;}  IMPORTANT  */
 
+.sheet-notready {
+	text-decoration: line-through;
+	font-weight: bold;
+	color: red;
+}
+.sheet-boldlabel-check:checked  .sheet-notready + b:not(.sheet-offCase) {
+	background-color: red;
+	color: white !important;
+}
 .sheet-table {
     display: table;
     width: 100%;
@@ -102,7 +114,7 @@
 }
 
 .sheet-table-data label {
-    font-size: 13px;
+    font-size: 13px !important;
     font-weight: normal;
     display: block;
     margin: 0 auto;
@@ -136,11 +148,6 @@
     font-weight: bold;
 }
 
-.sheet-label {
-    font-weight: bold;
-    text-align: center;
-    color: black;
-}
 .sheet-statlabel-sm {
 	display: table-cell;
     border: 1px solid white;
@@ -280,7 +287,7 @@ input.sheet-spellclass {
 span.sheet-tab {
 	text-align: center;
     display: inline-block;
-	font-size: 13px;
+	font-size: 13px !important;
 	background: #4a6486;
 	color: white;
 	font-weight: bold;
@@ -515,8 +522,8 @@ hr {
 /* used to highlight background of sub-nav row on repeating sections */
 hr.sheet-subnav-hr {
 	width: 100%;
-	border: .75rem solid #DAE4F2;
-	margin-top: -1.45rem;
+	border: 12px solid #DAE4F2; /* .75rem */
+	margin-top: 24px; /* -1.45rem */
 }
 .sheet-spellrange-data {
     width: 100% !important;
@@ -948,8 +955,10 @@ div[class^="sheet-classaction-row"],
 .sheet-rolltemplate-35Adv_splcheck .sheet-wrapper,
 .sheet-rolltemplate-35Adv_percentCheck .sheet-wrapper,
 .sheet-rolltemplate-35Adv_spell .sheet-wrapper,
+.sheet-rolltemplate-35Adv_Hazard .sheet-wrapper,
 .sheet-rolltemplate-35Adv_CharInfo .sheet-wrapper {
 	background:url(http://i.imgur.com/BLb0XMU.jpg) top left repeat;
+	margin-left: -10px;
 }
 /* Sheet Wrapper -- Slide Up */
 .sheet-rolltemplate-35Adv_dcinfo .sheet-wrapper,
@@ -997,12 +1006,12 @@ div[class^="sheet-classaction-row"],
 .sheet-rolltemplate-35Adv_TurnChk .sheet-border,
 .sheet-rolltemplate-35Adv_splcheck .sheet-border,
 .sheet-rolltemplate-35Adv_spell .sheet-border,
+.sheet-rolltemplate-35Adv_Hazard .sheet-border,
 .sheet-rolltemplate-35Adv_CharInfo .sheet-border,
 .sheet-rolltemplate-35Adv_percentCheck .sheet-border {
     border-color: #7E2D40;
     border-style: solid;
     border-width: 1px;
-    border-top-width: 0px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -1013,6 +1022,8 @@ div[class^="sheet-classaction-row"],
 
 .sheet-rolltemplate-35Adv_check span.sheet-info,
 .sheet-rolltemplate-35Adv_check2 span.sheet-info,
+.sheet-rolltemplate-35Adv_Hazard span.sheet-info,
+.sheet-rolltemplate-35Adv_spell span.sheet-info,
 .sheet-rolltemplate-35Adv_Multisave span.sheet-info { /* Redish Color */
     color: rgb(126, 45, 64);
     padding-left: 5px;
@@ -1034,6 +1045,7 @@ div[class^="sheet-classaction-row"],
 .sheet-rolltemplate-35Adv_dcinfo th.sheet-info,
 .sheet-rolltemplate-35Adv_AtkInfo th.sheet-info,
 .sheet-rolltemplate-35Adv_spell th.sheet-info,
+.sheet-rolltemplate-35Adv_Hazard th.sheet-info,
 .sheet-rolltemplate-35Adv_CharInfo th.sheet-info {
     color: white;
     padding-left: 5px;
@@ -1070,6 +1082,15 @@ div[class^="sheet-classaction-row"],
     font-variant: small-caps;
     letter-spacing: 1px;
 }
+.sheet-rolltemplate-35Adv_Hazard td.sheet-subheader,
+.sheet-rolltemplate-35Adv_CharInfo td.sheet-subheader {
+	font-size: 14px;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-style: dotted;
+    color: #7E2D40;
+	padding: 2px;
+}
 
 /* Sheet Attack Sub-Header */ 
 .sheet-rolltemplate-35AdvAttack .sheet-subheader,
@@ -1103,12 +1124,14 @@ div[class^="sheet-classaction-row"],
 .sheet-rolltemplate-35Adv_splcheck .sheet-tcat,
 .sheet-rolltemplate-35Adv_percentCheck .sheet-tcat,
 .sheet-rolltemplate-35Adv_spell .sheet-tcat,
+.sheet-rolltemplate-35Adv_Hazard .sheet-tcat,
 .sheet-rolltemplate-35Adv_CharInfo .sheet-tcat {
     font-weight: bold;
 }
 /* Sheet Indent */
 .sheet-rolltemplate-35Adv_dcinfo .sheet-indent,
 .sheet-rolltemplate-35Adv_spell .sheet-indent,
+.sheet-rolltemplate-35Adv_Hazard .sheet-indent,
 .sheet-rolltemplate-35Adv_CharInfo .sheet-indent,
 .sheet-rolltemplate-35Adv_AtkInfo .sheet-indent { /* Indentation */
     padding-left: 0.8em;
@@ -1133,21 +1156,73 @@ div[class^="sheet-classaction-row"],
     text-align: center;
 }
 /* Sheet Table */
+
+/* Broken Sheet Correction -- 35AdvAtk2 */ 
+.sheet-rolltemplate-35AdvAtk2 table>thead>tr>th, 
+.sheet-rolltemplate-35AdvAtk2 table>tbody>tr>th, 
+.sheet-rolltemplate-35AdvAtk2 table>tfoot>tr>th, 
+.sheet-rolltemplate-35AdvAtk2 table>thead>tr>td, 
+.sheet-rolltemplate-35AdvAtk2 table>tbody>tr>td, 
+.sheet-rolltemplate-35AdvAtk2 table>tfoot>tr>td,
+/* Broken Sheet Correction -- AtkInfo */ 
+.sheet-rolltemplate-35Adv_AtkInfo table>thead>tr>th, 
+.sheet-rolltemplate-35Adv_AtkInfo table>tbody>tr>th, 
+.sheet-rolltemplate-35Adv_AtkInfo table>tfoot>tr>th, 
+.sheet-rolltemplate-35Adv_AtkInfo table>thead>tr>td, 
+.sheet-rolltemplate-35Adv_AtkInfo table>tbody>tr>td, 
+.sheet-rolltemplate-35Adv_AtkInfo table>tfoot>tr>td,
+/* Broken Sheet Correction -- 35Adv_spell */ 
+.sheet-rolltemplate-35Adv_spell table>thead>tr>th, 
+.sheet-rolltemplate-35Adv_spell table>tbody>tr>th, 
+.sheet-rolltemplate-35Adv_spell table>tfoot>tr>th, 
+.sheet-rolltemplate-35Adv_spell table>thead>tr>td, 
+.sheet-rolltemplate-35Adv_spell table>tbody>tr>td, 
+.sheet-rolltemplate-35Adv_spell table>tfoot>tr>td,
+/* Broken Sheet Correction -- 35Adv_Hazard */ 
+.sheet-rolltemplate-35Adv_Hazard table>thead>tr>th, 
+.sheet-rolltemplate-35Adv_Hazard table>tbody>tr>th, 
+.sheet-rolltemplate-35Adv_Hazard table>tfoot>tr>th, 
+.sheet-rolltemplate-35Adv_Hazard table>thead>tr>td, 
+.sheet-rolltemplate-35Adv_Hazard table>tbody>tr>td, 
+.sheet-rolltemplate-35Adv_Hazard table>tfoot>tr>td,
+/* Broken Sheet Correction -- 35Adv_CharInfo */ 
+.sheet-rolltemplate-35Adv_CharInfo table>thead>tr>th, 
+.sheet-rolltemplate-35Adv_CharInfo table>tbody>tr>th, 
+.sheet-rolltemplate-35Adv_CharInfo table>tfoot>tr>th, 
+.sheet-rolltemplate-35Adv_CharInfo table>thead>tr>td, 
+.sheet-rolltemplate-35Adv_CharInfo table>tbody>tr>td, 
+.sheet-rolltemplate-35Adv_CharInfo table>tfoot>tr>td,
+/* Broken Sheet Correction -- 35Adv_dcinfo */ 
+.sheet-rolltemplate-35Adv_dcinfo table>thead>tr>th, 
+.sheet-rolltemplate-35Adv_dcinfo table>tbody>tr>th, 
+.sheet-rolltemplate-35Adv_dcinfo table>tfoot>tr>th, 
+.sheet-rolltemplate-35Adv_dcinfo table>thead>tr>td, 
+.sheet-rolltemplate-35Adv_dcinfo table>tbody>tr>td, 
+.sheet-rolltemplate-35Adv_dcinfo table>tfoot>tr>td {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	line-height: 14px;
+}
+
 .sheet-rolltemplate-35Adv_dcinfo table,
 .sheet-rolltemplate-35AdvAttack table,
 .sheet-rolltemplate-35AdvAtk2 table ,
 .sheet-rolltemplate-35Adv_AtkInfo table,
 .sheet-rolltemplate-35Adv_spell table,
+.sheet-rolltemplate-35Adv_Hazard table,
 .sheet-rolltemplate-35Adv_CharInfo table {
-    width: 100%;
     padding: 2px;
+	width: 100%;
+	margin-bottom: -1px;
+	border-color: transparent;
 }
 /* Sheet Table TH  -- INFO */
 .sheet-rolltemplate-35Adv_dcinfo th,
 .sheet-rolltemplate-35Adv_AtkInfo th {
     color: rgb(233, 223, 151);
     background-color: #7E2D40;
-    padding-left: 5px;
+    padding-left: 5px !important;
     line-height: 1.1em;
     font-size: 1em;
     text-align: left;
@@ -1157,8 +1232,8 @@ div[class^="sheet-classaction-row"],
 .sheet-rolltemplate-35AdvAttack th,
 .sheet-rolltemplate-35AdvAtk2 th  {
     color: rgb(126, 45, 64);
-    padding-left: 5px;
-    line-height: 1.6em;
+    padding-left: 5px !important;
+    line-height: 1.3em !important;
     font-size: 1.2em;
     text-align: left;
     font-family:"Times New Roman", Times, serif;
@@ -1166,6 +1241,7 @@ div[class^="sheet-classaction-row"],
 }
 /* Sheet Table TH -- Spells (Small Caps) */
 .sheet-rolltemplate-35Adv_spell th,
+.sheet-rolltemplate-35Adv_Hazard th,
 .sheet-rolltemplate-35Adv_CharInfo th {
     color: rgb(233, 223, 151);
     background-color: #7E2D40;
@@ -1180,9 +1256,10 @@ div[class^="sheet-classaction-row"],
 /* Sheet Table TD Info */
 .sheet-rolltemplate-35Adv_dcinfo td.sheet-info,
 .sheet-rolltemplate-35Adv_AtkInfo td.sheet-info {
-    padding-left: 1px;
+	padding: 0 0 0 4px;
     font-size: 0.8em;
-	line-height: 0.9em;
+	border: 1px solid black;
+	line-height: 11px;
 }
 /* Sheet Table TD */
 .sheet-rolltemplate-35AdvAttack td,
@@ -1192,6 +1269,7 @@ div[class^="sheet-classaction-row"],
 }
 /* Sheet Table TD -- Spells */
 .sheet-rolltemplate-35Adv_spell td,
+.sheet-rolltemplate-35Adv_Hazard td,
 .sheet-rolltemplate-35Adv_CharInfo td {
     padding-left: 5px;
     font-size: 0.9em;
@@ -1239,6 +1317,7 @@ div[class^="sheet-classaction-row"],
 .sheet-rolltemplate-35Adv_AtkInfo .sheet-hroll,
 .sheet-rolltemplate-35Adv_percentCheck .sheet-hroll,
 .sheet-rolltemplate-35Adv_spell .sheet-hroll,
+.sheet-rolltemplate-35Adv_Hazard .sheet-hroll,
 .sheet-rolltemplate-35Adv_CharInfo .sheet-hroll {
     background:url(http://i.imgur.com/BLb0XMU.jpg) top left repeat;
 	position: relative;
@@ -1457,18 +1536,21 @@ div[class^="sheet-classaction-row"],
 /* Spell Link Style */
 
 .sheet-rolltemplate-35Adv_spell .sheet-sm_text,
+.sheet-rolltemplate-35Adv_Hazard .sheet-sm_text,
 .sheet-rolltemplate-35Adv_CharInfo .sheet-sm_text { /* Indentation */
     font-size: 0.8em;
 	line-height: 1.0em;
 	padding-left: 5px;
 }
 .sheet-rolltemplate-35Adv_spell td  .sheet-subcat,
+.sheet-rolltemplate-35Adv_Hazard td .sheet-subcat,
 .sheet-rolltemplate-35Adv_CharInfo td .sheet-subcat {
     padding-left: 5px;
     font-size: 0.9em;
 	line-height: 0.8em;
 }
 .sheet-rolltemplate-35Adv_spell .inlinerollresult,
+.sheet-rolltemplate-35Adv_Hazard .inlinerollresult,
 .sheet-rolltemplate-35Adv_CharInfo .inlinerollresult {
     background-color: transparent;
     border: none;
@@ -1476,18 +1558,21 @@ div[class^="sheet-classaction-row"],
 }
 
 .sheet-rolltemplate-35Adv_spell .inlinerollresult.fullcrit,
+.sheet-rolltemplate-35Adv_Hazard .inlinerollresult.fullcrit,
 .sheet-rolltemplate-35Adv_CharInfo .inlinerollresult.fullcrit {
     color: #3FB315;
     border: none;
 	padding: 0px; /* Trims unneeded whitespace */
 }
 .sheet-rolltemplate-35Adv_spell .inlinerollresult.fullfail,
+.sheet-rolltemplate-35Adv_Hazard .inlinerollresult.fullfail,
 .sheet-rolltemplate-35Adv_CharInfo .inlinerollresult.fullfail {
     color: #B31515;
     border: none;
 	padding: 0px; /* Trims unneeded whitespace */
 }
 .sheet-rolltemplate-35Adv_spell .inlinerollresult.importantroll,
+.sheet-rolltemplate-35Adv_Hazard .inlinerollresult.importantroll,
 .sheet-rolltemplate-35Adv_CharInfo .inlinerollresult.importantroll {
     color: #4A57ED;
     border: none;
@@ -1626,7 +1711,7 @@ label {
 	font-size:inherit;
 	line-height:1em;
 	margin-bottom:initial;
-	padding-right:initial;
+	/* padding-right:initial; */
 	width:initial;
 	color:initial;
 	position:relative;
@@ -1667,7 +1752,7 @@ textarea {
 .sheet-sk-hm-chk {
 	vertical-align: -webkit-baseline-middle !important;
 	vertical-align: middle !important;
-	margin-top: 7px;
+	margin-top: -20px;
 }
 .sheet-modMacro {
 	width: 93%;
@@ -1701,12 +1786,12 @@ h2,h3,h4,h5,h6 {
 	line-height:1em;
 	margin:initial;
 	display:inline;
-	font-size:.8125rem;
+	font-size:13px; /*.8125rem;*/
 	color:initial;
 }
 
 h1 {
-	font-size:.9375rem;
+	font-size: 15px; /* .9375rem */
 	vertical-align:bottom;
 	line-height:1em;
 	clear:both;
@@ -1749,8 +1834,8 @@ button, button:hover, button:active {
 }
 
 button[type="roll"] {
-	margin: .25em .25em .25em .25em ;
-	font-size:.8125rem;
+	margin: .25em .25em .25em .25em;
+	font-size: 13px; /* .8125rem */
 }
 .sheet-pf-wrapper, .sheet-pf-wrapper *,
 .sheet-pf-wrapper *::after, .sheet-pf-wrapper *::before {
@@ -1772,6 +1857,7 @@ h2,h3,h4,h5,h6,
 .sheet-text-button,
 .sheet-tab {
 	font-family: Arial, sans-serif;
+	font-size: 13px; /*BUGGED */
 }
 
 .sheet-pictos {
@@ -1841,10 +1927,10 @@ input[type="text"].sheet-macro-text {
 
 input[type="text"], input[type="number"] {
 	width: 100%;
-    margin: 1px 0 0 0;
+    /*margin: 1px 0 0 0;*/
 	border: 0 solid #666;
 	border-bottom-width: 1px;
-	min-width:3em;
+	/*min-width:3em;*/
 }
 
 
@@ -1872,7 +1958,7 @@ also need 1 more level in selector or base css will override border */
 }
 .sheet-error {
 	color:Red;
-	font-size:.825rem;
+	font-size: 14px; /* .825rem */
 	background-color:White;
 	margin-left:.25em;
 }
@@ -1924,6 +2010,11 @@ also need 1 more level in selector or base css will override border */
 	font-style: italic;
 	font-weight: bold;
 	color: black;
+	text-align: center;
+	
+}
+.sheet-tcsl input {
+	font-style: normal;	
 }
 .sheet-attrSpacer {
 	vertical-align:middle;
@@ -1945,10 +2036,10 @@ also need 1 more level in selector or base css will override border */
 	border-collapse:collapse;
 }
 
-.sheet-total-row {
+.sheet-total-row { 
 	display: table-row;
 	vertical-align: bottom;
-	height:2rem;
+	height: 32px /* 2rem */
 	width:100%;
 	overflow:hidden;
 	border-collapse:collapse;
@@ -1958,10 +2049,11 @@ also need 1 more level in selector or base css will override border */
 	font-weight: bold;
 	text-align: center;
 	color:Black;
+	font-size: 13px !important; /* BUGGED */
 }
 
 .sheet-select-small {
-	font-size: .765rem;
+	font-size: 12px; /* .765rem; BUGGED */
 	height: 2em;
 	padding: 0;
 	min-width:3.5em;
@@ -2010,7 +2102,7 @@ input[type="number"]:disabled {
 
 
 .sheet-text-button, button.sheet-text-button  {
-	font-size: 1.05rem;
+	font-size: 16px; /* 1.05rem; */
 	color:White;
 	background-color:Black;
 	border: 0;
@@ -2114,7 +2206,7 @@ button[type=roll].sheet-command-button::before {
 .sheet-cssbutton-label {
     margin-left: -3em;
     font-weight: bold;
-    font-size: .666rem;
+    font-size: 11px; /*.666rem; */
     font-style: italic;
     vertical-align: bottom;
     cursor: help;
@@ -2133,7 +2225,7 @@ button[type=roll].sheet-command-button::before {
 .sheet-minimize-show:checked ~ .sheet-sect-buff   .sheet-linked-fields,
 .sheet-minimize-show:checked ~ .sheet-section-sp-list.sheet-filtered-box,
 .sheet-sect-buff .sheet-counted:not(:checked)  ~ .sheet-linked-fields {
-	width:3.1rem;
+	width: 64px; /* 3.1rem; */
 }
 
 .sheet-tabs:not(.sheet-custbordernav) ~ .sheet-tabinput.sheet-tab0:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-section0,
@@ -2168,7 +2260,7 @@ button[type=roll].sheet-command-button::before {
 }
 
 .sheet-section-ability-list .sheet-small-label2 span:not(.sheet-autoexpand) {
-	font-size: .6rem;
+/*	font-size: .6rem; BUGGED VALUE */
 }
 
 .sheet-hiderepborder .sheet-table-repeating .sheet-counted {
@@ -2178,12 +2270,12 @@ button[type=roll].sheet-command-button::before {
     padding: 0;
     margin: 0;
     border: none;
-    border-radius: 0;
+    border-radius: 2px;
 }
 .sheet-hiderepborder .repcontainer .repitem .sheet-custrepeating-border {
 	padding: 2px;
 	margin: 1px 0 0 0;
-    border: 2px solid #CCCCCC;
+    border: 1px solid black;
     border-radius: 7px;
 }
 
@@ -2222,10 +2314,10 @@ button[type=roll].sheet-command-button::before {
     background: #4a6486;
     color: White;
     font-weight: bold;
-    font-size: .8125rem;
+    font-size: 13px; /* .8125rem; BUGGED */
     padding: .4em .3em .1em .3em;
     vertical-align: bottom;
-    margin-left: -4px;
+    /*margin-left: -4px; */
     margin-right: 0;
     white-space: nowrap;
 	border-radius: 7px 7px 0 0;
@@ -2244,7 +2336,7 @@ input.sheet-tabinput {
 
 .sheet-mainnav ~ .sheet-tab,
 .sheet-mainnav ~ .sheet-tabinput  {
-	font-size: 1rem;
+	font-size: 16px; /* 1rem */
 }
 .sheet-mainnav ~ .sheet-tab {
 	width:11%;
@@ -2320,7 +2412,7 @@ input.sheet-tabinput {
 .sheet-tabinput.sheet-tab6:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-section6,
 .sheet-tabinput.sheet-tab7:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-section7,
 .sheet-tabinput.sheet-tab8:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-section8,
-.sheet-tabinput.sheet-tab9:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-section9,/*
+.sheet-tabinput.sheet-tab9:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-section9 /*
 .sheet-spellsnav ~ .sheet-tabinput.sheet-tab0:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-repeating-fields .sheet-section-level-0:checked ~ .sheet-spell-border,
 .sheet-spellsnav ~ .sheet-tabinput.sheet-tab1:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-repeating-fields .sheet-section-level-1:checked ~ .sheet-spell-border,
 .sheet-spellsnav ~ .sheet-tabinput.sheet-tab2:not(:checked) ~ .sheet-tabinput.sheet-tab99:not(:checked) ~ .sheet-repeating-fields .sheet-section-level-2:checked ~ .sheet-spell-border,
@@ -2372,21 +2464,22 @@ input.sheet-tabinput {
 
 .sheet-super::after  {
     margin-left: .25em;
-    font-size: 1rem;
+    font-size: 11px; /* 1rem; */
+	vertical-align: super;
     font-weight: normal;
     color: black;
 }
 .sheet-note-a::after {
-    content: 'a';
+    content: '(a)';
 }
 .sheet-note-b::after {
-    content: 'b';
+    content: '(b)';
 }
 .sheet-note-c::after {
-    content: 'c';
+    content: '(c)';
 }
 .sheet-note-d::after {
-    content: 'd';
+    content: '(d)';
 }
 .sheet-text-tight {
     font-size: .65em;
@@ -2536,13 +2629,13 @@ span.sheet-table-cell.sheet-linked-tablecell.sheet-extra-sect {
 .sheet-addshieldbutton,
 .sheet-createmacrobutton,
 .sheet-createattackbutton {
-    margin-right: -1.5rem;
+    margin-right: 15px; /* -1.5rem */
 }
 .sheet-lock-show,
 .sheet-split-column-show,
 .sheet-readonly-show,
 .sheet-createattackbutton {
-    margin: 0 -1.4rem 2px 0;
+    margin: 0 -14px 2px 0; /*0 -1.4rem 2px 0 */
 }
 .sheet-createattackbutton + span::before {
     content: '⚔';
@@ -2710,19 +2803,19 @@ h2 label {
 	width: 1.4rem !important;
 }
 .sheet-lock-show, .sheet-split-column-show, .sheet-minimize-show  {
-	margin: 0px -1.4rem 2px .33rem;
+	margin: 0px -14px 2px 5px; /* -1.4rem/.33rem */
 }
 
 .sheet-refreshbutton,
 .sheet-cssbutton {
-	margin-right: -1.5rem;
+	margin-right: -16px; /* -1.5rem */
 }
 
 .sheet-cssbutton + span::before {
     display: inline-block;
-    font-size: 1rem;
+    font-size: 16px; /* 1rem */
 	margin:2px;
-	padding:1px 2px 0 2px;
+	padding:0px 2px 0px 2px;
 	font-weight: bold;
     border-radius: 5px;
     border: 1px solid #808080;
@@ -2730,8 +2823,9 @@ h2 label {
 	color:Black;
 	text-align:center;
 	font-style:normal !important;
-	width: 1.4rem !important;
-	height: 1.4rem !important;
+	width: 24px !important;  /* 1.4 rem */
+	height: 24px !important; /* 1.4 rem */
+	box-sizing: border-box;
 }
 .sheet-minimize-show:checked ~ .sheet-lock-show + span::before,
 .sheet-cssbutton:checked + span::before {
@@ -2852,7 +2946,7 @@ content: counter(sheet-rep-items) '. ▼' !important;
 .sheet-condition-exists + label ,
 .sheet-status-panel  label b {
 	display:inline;
-	font-size:.7125rem;
+	/* font-size:.7125rem; BUGGED */
 	line-height:1em;
 	margin:0px 0px 0px 0px;
 	padding: 1px .5em 1px .25em;
@@ -2871,7 +2965,7 @@ content: counter(sheet-rep-items) '. ▼' !important;
 	background-color:lightgray;
 }
 .sheet-conditions .sheet-table-cell {
-	font-size:.7125rem;
+	/* font-size:.7125rem; BUGGED */
 }
 
 .sheet-no-pad-right {
@@ -3088,10 +3182,19 @@ button[type="roll"].sheet-blank-roll-button::before {
 .sheet-highlight input[readonly] {
 	border-bottom:2px transarent solid;
 }
+
+.sheet-warn-show:checked + input.sheet-highlight,
+.sheet-warn-show:checked + textarea.sheet-highlight,
+.sheet-warn-mshow:checked ~ input.sheet-highlight , 
+.sheet-warn-mshow:checked ~ textarea.sheet-highlight , 
 .sheet-warn-show:checked + .sheet-highlight input,
-.sheet-warn-mshow:checked  ~ .sheet-highlight input  {
-	border:2px #B8860B dashed !important;
+.sheet-warn-show:checked + .sheet-highlight textarea,
+.sheet-warn-mshow:checked ~ .sheet-highlight input,
+.sheet-warn-mshow:checked ~ .sheet-highlight textarea {
+    border: 2px #B8860B dashed !important;
 }
+
+
 .sheet-error-show:checked + .sheet-highlight input,
 .sheet-error-mshow:checked  ~ .sheet-highlight input {
 	border:2px #FF0044 dotted !important;
@@ -3141,13 +3244,13 @@ button[type="roll"].sheet-blank-roll-button::before {
 
 .sheet-small-label2 {
     display: inline-block;
-	margin: .3em .2em .3em .25em; /* Originally .3em .2em .3em .25em */
+	margin: .3em -9px .5em 0px; /* Originally .3em .2em .3em .25em */
 	height:2.3em;
 	min-height:2em;
-	vertical-align: top;
+	vertical-align: middle;
     text-align:center;
 	position:relative;
-	white-space: nowrap;
+	/* white-space: nowrap;   BUGGED VALUE */
 }
 
 .sheet-small-label2-SplDam {
@@ -3183,6 +3286,7 @@ button[type="roll"].sheet-blank-roll-button::before {
 	display:block;
 	padding:.25em 2px .25em 2px;
 	vertical-align:top;
+	border: 1px solid #ccc;
 	height:1.825em; /* otherwise defaults from base.css hardcode it too tall */
 	position:relative;
 }
@@ -3212,12 +3316,16 @@ button[type="roll"].sheet-blank-roll-button::before {
 	vertical-align:middle;
 }
 .sheet-compendium-icon {
-	font-weight:bold;
+	/*font-weight:bold;*/
 	font-family: Pictos;
-	font-size:1.125rem;
-	vertical-align:bottom;
+	font-size:18px;
+	/*vertical-align:bottom;*/
 }
-
+.sheet-drag-icon {
+	font-family: Pictos;
+	font-size:22px;
+	vertical-align:top;
+}
 .sheet-notes-cell,
 .sheet-table-cell.sheet-notes-cell {
 	vertical-align:top;
@@ -3258,10 +3366,11 @@ button[type="roll"].sheet-blank-roll-button::before {
 	margin-top:1em;
 }
 .sheet-divider-db-narrow {
-	display:inline-block;
+	/*display:inline-block;*/
 	padding-left: 0.09em;
-	margin-left:-.125em;
-	margin-top:1em;
+	margin-left: -5px;
+	margin-right: -3px;
+	/*margin-top:1em;*/
 }
 
 .sheet-table-name , .sheet-nontable-name {
@@ -3335,7 +3444,15 @@ button[type="roll"].sheet-spellcaster-button {
 	text-align:justify;
 	border-collapse:collapse;
 }
-
+span.sheet-tcsl-math {
+	margin: 0px -1px 0px -4px;
+    font-weight: bold;
+    font-size: 20px !important;
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative;
+    top: -8px;	
+}
 .sheet-buffs, .sheet-conditions {
 	border-style:solid;
 	border-width:2px;
@@ -3353,11 +3470,11 @@ span.sheet-entry-wide textarea {
 
 
 .sheet-nontable .sheet-divider-db-lg {
-	vertical-align:top;
+	vertical-align:baseline;
 	white-space: nowrap;
 }
 .sheet-nontable-repeating  .sheet-divider-db-lg {
-	vertical-align:middle;
+	vertical-align:baseline;
 	white-space: nowrap;
 }
 .sheet-entry-ultimate {
@@ -3409,7 +3526,7 @@ input[type="number"].sheet-entry-wide {
 .sheet-split-column-show:checked ~ .sheet-repeating-fields .sheet-small-label2,
 .sheet-counted:not(:checked) ~ .sheet-small-label2 {
 	margin-left:0px;
-	margin-right:2px;
+	/* margin-right:2px; */
 }
 
 
@@ -3541,10 +3658,17 @@ input[type="number"].sheet-entry-wide {
 .sheet-counted:not(:checked) ~ .sheet-linked-fields.sheet-space-right-collapse {
 	margin-right:0.5em; /* originally 1.25em */
 }
+
+.sheet-counted:not(:checked) ~ .sheet-small-label2.sheet-space-right-collapse,
+.sheet-counted:not(:checked) ~ .sheet-linked-fields.sheet-space-right-collapse {
+	margin-right:0.5em; /* originally 1.25em */
+}
+
 /******* end of generic repeating items ********/
 .sheet-sect.sheet-expand .sheet-macro-text,
-.sheet-sect.sheet-expand .sheet-macro-text .sheet-small-label2 {
-	height:auto;
+.sheet-sect.sheet-expand .sheet-macro-text .sheet-small-label2 .sheet-mod-label {
+	margin-left: 0px;
+	margin-right: 10px;
 }
 .sheet-extra-damage, .sheet-sect.sheet-expand .sheet-macro-text {
 	background-color:Gainsboro;
@@ -3726,6 +3850,10 @@ input[type="number"].sheet-entry-wide {
 /* bg background tab turn off adventure skills */
 .sheet-unchained-show:checked ~ .sheet-bg-show:checked  ~ .sheet-tab2:checked  ~ .sheet-skills  .sheet-adventure:not(.sheet-bg) {
 	display:none;
+}
+/* Next Item Compression */
+.sheet-nextitem-show:not(:checked) + * {
+	
 }
 
 /********************************************** Roll Templates ***************************************************************************/
