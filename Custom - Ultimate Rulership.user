@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <procedure id="KingQtyVar" context="pick">~ OUT: All Buildings, District Improvements and Borders
+var qty_acad as number
+var qty_alch as number
+var qty_aren as number
+var qty_bank as number
+var qty_bardC as number
+var qty_barr as number
+var qty_blkM as number
+var qty_brew as number
+var qty_brig as number
+var qty_bureu as number
+var qty_castT as number
+var qty_castl as number
+var qty_cist as number
+var qty_cath as number
+var qty_dance as number
+var qty_dump as number
+var qty_everf as number
+var qty_exotA as number
+var qty_forei as number
+var qty_found as number
+var qty_garr as number
+var qty_gran as number
+var qty_grave as number
+var qty_guild as number
+var qty_herba as number
+var qty_hosp as number
+var qty_house as number
+var qty_inn as number
+var qty_jail as number
+var qty_libr as number
+var qty_luxu as number
+var qty_magSh as number
+var qty_magAc as number
+var qty_mans as number
+var qty_market as number
+var qty_menag as number
+var qty_milAc as number
+var qty_mill as number
+var qty_mint as number
+var qty_monast as number
+var qty_monum as number
+var qty_museu as number
+var qty_nobleV as number
+var qty_observ as number
+var qty_orph as number
+var qty_palace as number
+var qty_park as number
+var qty_pier as number
+var qty_shop as number
+var qty_shrine as number
+var qty_smith as number
+var qty_stocky as number
+var qty_tanner as number
+var qty_tavern as number
+var qty_tenem as number
+var qty_theat as number
+var qty_townH as number
+var qty_univ as number
+var qty_watch as number
+var qty_waterfront as number
+var qty_waterway as number
+var qty_windmill as number
+
+var qty_totBldg as number
+
+   ~ Building Quantity variables
+qty_acad = parent.tagcount[HexImprove.hiAcademy]
+qty_alch = parent.tagcount[HexImprove.hiAlchemis]
+qty_aren = parent.tagcount[HexImprove.hiArena]
+qty_bank = parent.tagcount[HexImprove.hiBank]
+qty_bardC = parent.tagcount[HexImprove.hiBardicCo]
+qty_barr = parent.tagcount[HexImprove.hiBarracks]
+qty_blkM = parent.tagcount[HexImprove.hiBlackMar]
+qty_brew = parent.tagcount[HexImprove.hiBrewery]
+qty_brig = parent.tagcount[HexImprove.hiSBridge]
+qty_bureu = parent.tagcount[HexImprove.hiBureau]
+qty_castT = parent.tagcount[HexImprove.hiCasterTo]
+qty_castl = parent.tagcount[HexImprove.hiCastle]
+qty_cist = parent.tagcount[HexImprove.hiCistern]
+qty_cath = parent.tagcount[HexImprove.hiCathedra]
+qty_dance = parent.tagcount[HexImprove.hiDanceHal]
+qty_dump = parent.tagcount[HexImprove.hiDump]
+qty_everf = parent.tagcount[HexImprove.hiEverflow]
+qty_exotA = parent.tagcount[HexImprove.hiExotArti]
+qty_forei = parent.tagcount[HexImprove.hiForeignQ]
+qty_found = parent.tagcount[HexImprove.hiFoundry]
+qty_garr = parent.tagcount[HexImprove.hiGarrison]
+qty_gran = parent.tagcount[HexImprove.hiGranary]
+qty_grave = parent.tagcount[HexImprove.hiGraveyar]
+qty_guild = parent.tagcount[HexImprove.hiGuildhal]
+qty_herba = parent.tagcount[HexImprove.hiHerbalis]
+qty_hosp = parent.tagcount[HexImprove.hiHospital]
+qty_house = parent.tagcount[HexImprove.hiHouse]
+qty_inn = parent.tagcount[HexImprove.hiInn]
+qty_jail = parent.tagcount[HexImprove.hiJail]
+qty_libr = parent.tagcount[HexImprove.hiLibrary]
+qty_luxu = parent.tagcount[HexImprove.hiLuxStore]
+qty_magSh = parent.tagcount[HexImprove.hiMagShop]
+qty_magAc = parent.tagcount[HexImprove.hiMagAcad]
+qty_mans = parent.tagcount[HexImprove.hiMansion]
+qty_market = parent.tagcount[HexImprove.hiMarket]
+qty_menag = parent.tagcount[HexImprove.hiMenageri]
+qty_milAc = parent.tagcount[HexImprove.hiMilAcad]
+qty_mill = parent.tagcount[HexImprove.hiMill]
+qty_mint = parent.tagcount[HexImprove.hiMint]
+qty_monast = parent.tagcount[HexImprove.hiMonaster]
+qty_monum = parent.tagcount[HexImprove.hiMonument]
+qty_museu = parent.tagcount[HexImprove.hiMuseum]
+qty_nobleV = parent.tagcount[HexImprove.hiNobleVil]
+qty_observ = parent.tagcount[HexImprove.hiObservat]
+qty_orph = parent.tagcount[HexImprove.hiOrphanag]
+qty_palace = parent.tagcount[HexImprove.hiPalace]
+qty_park = parent.tagcount[HexImprove.hiPark]
+qty_pier = parent.tagcount[HexImprove.hiPier]
+qty_shop = parent.tagcount[HexImprove.hiShopM] + parent.tagcount[HexImprove.hiShopL]
+qty_shrine = parent.tagcount[HexImprove.hiShrine]
+qty_smith = parent.tagcount[HexImprove.hiSmithy]
+qty_stocky = parent.tagcount[HexImprove.hiStockyar]
+qty_tanner = parent.tagcount[HexImprove.hiTannery]
+qty_tavern = parent.tagcount[HexImprove.hiTavern]
+qty_tenem = parent.tagcount[HexImprove.hiTenement]
+qty_theat = parent.tagcount[HexImprove.hiTheater]
+qty_townH = parent.tagcount[HexImprove.hiTownHall]
+qty_univ = parent.tagcount[HexImprove.hiUniversi]
+qty_watch = parent.tagcount[HexImprove.hiSWatchto]
+qty_waterfront = parent.tagcount[HexImprove.hiWaterfro]
+qty_waterway = parent.tagcount[HexImprove.hiWaterway]
+qty_windmill = parent.tagcount[HexImprove.hiWindmill]
+
+qty_totBldg = qty_acad + qty_alch + qty_aren + qty_bank + qty_bardC + qty_barr + qty_blkM + qty_brew + qty_brig + qty_bureu + qty_castT + qty_castl + qty_cist + qty_cath + qty_dance + qty_dump + qty_everf + qty_exotA + qty_forei + qty_found + qty_garr + qty_gran + qty_grave + qty_guild + qty_herba + qty_hosp + qty_house + qty_inn + qty_jail + qty_libr + qty_luxu + qty_magSh + qty_magAc + qty_mans + qty_market + qty_menag + qty_milAc + qty_mill + qty_mint + qty_monast + qty_monum + qty_museu + qty_nobleV + qty_observ + qty_orph + qty_palace + qty_park + qty_pier + qty_shop + qty_shrine + qty_smith + qty_stocky + qty_tanner + qty_tavern + qty_tenem + qty_theat + qty_townH + qty_univ + qty_watch + qty_waterfront + qty_waterway + qty_windmill</procedure>
+  <thing id="keLGIsola" name="Isolationist" description="{b}Hex Claims:{/b} -1\n{b}S:{/b} +2 {b}L:{/b} +1 {b}E:{/b} -2\n{b}Consumption:{/b} -1 BP\n\nThese edicts replace the standard promotion edicts and represent how aggressive your domain is in terms of enlarging its territory and claiming new subjects, sometimes at the expense of consolidating the ground you already hold, or whether you focus on slow and incremental growth." compset="KingEdict">
+    <fieldval field="kaStabilit" value="2"/>
+    <fieldval field="kaConsump" value="-1"/>
+    <fieldval field="kaEconomy" value="-2"/>
+    <fieldval field="kaLoyalty" value="1"/>
+    <tag group="EdictTable" tag="Promotion"/>
+    <tag group="explicit" tag="10"/>
+    <eval phase="Final" priority="9000">hero.childfound[KingHelper].field[khHexes].value -= 1</eval>
+    </thing>
+  <thing id="keLGCaut" name="Cautious" description="{b}Hex Claims:{/b} Unchanged\n{b}S:{/b} +1 {b}L:{/b} -- {b}E:{/b} -1\n{b}Consumption:{/b} --\n\nThese edicts replace the standard promotion edicts and represent how aggressive your domain is in terms of enlarging its territory and claiming new subjects, sometimes at the expense of consolidating the ground you already hold, or whether you focus on slow and incremental growth." compset="KingEdict">
+    <fieldval field="kaEconomy" value="-1"/>
+    <fieldval field="kaStabilit" value="1"/>
+    <tag group="explicit" tag="4"/>
+    <tag group="EdictTable" tag="Promotion"/>
+    </thing>
+  <thing id="keLGStand" name="Standard" description="{b}Hex Claims:{/b} Unchanged\n{b}S:{/b} -- {b}L:{/b} -- {b}E:{/b} --\n{b}Consumption:{/b} --\n\nThese edicts replace the standard promotion edicts and represent how aggressive your domain is in terms of enlarging its territory and claiming new subjects, sometimes at the expense of consolidating the ground you already hold, or whether you focus on slow and incremental growth." compset="KingEdict">
+    <fieldval field="kaEconomy" value="-1"/>
+    <fieldval field="kaStabilit" value="1"/>
+    <tag group="explicit" tag="6"/>
+    <tag group="EdictTable" tag="Promotion"/>
+    </thing>
+  <thing id="keLGAgres" name="Agressive" description="{b}Hex Claims:{/b} +1\n{b}S:{/b} -1 {b}L:{/b} -1 {b}E:{/b} +1\n{b}Consumption:{/b} 1d4 BP\n\nThese edicts replace the standard promotion edicts and represent how aggressive your domain is in terms of enlarging its territory and claiming new subjects, sometimes at the expense of consolidating the ground you already hold, or whether you focus on slow and incremental growth." compset="KingEdict">
+    <fieldval field="kaEconomy" value="1"/>
+    <fieldval field="kaLoyalty" value="-1"/>
+    <fieldval field="kaStabilit" value="-1"/>
+    <fieldval field="kaConsump" value="1d4"/>
+    <tag group="EdictTable" tag="Promotion"/>
+    <tag group="explicit" tag="8"/>
+    <eval phase="Final" priority="9000">hero.childfound[KingHelper].field[khHexes].value += 1</eval>
+    </thing>
+  <thing id="keLGImper" name="Imperialist" description="{b}Hex Claims:{/b} +2\n{b}S:{/b} -2 {b}L:{/b} -2 {b}E:{/b} +2\n{b}Consumption:{/b} 2d4 BP\n\nThese edicts replace the standard promotion edicts and represent how aggressive your domain is in terms of enlarging its territory and claiming new subjects, sometimes at the expense of consolidating the ground you already hold, or whether you focus on slow and incremental growth." compset="KingEdict">
+    <fieldval field="kaLoyalty" value="-2"/>
+    <fieldval field="kaStabilit" value="-2"/>
+    <fieldval field="kaConsump" value="2d4"/>
+    <fieldval field="kaEconomy" value="2"/>
+    <usesource source="pLGUltRule" parent="pLGLegGame" name="Ultimate Rulership"/>
+    <tag group="EdictTable" tag="Promotion"/>
+    <tag group="explicit" tag="0"/>
+    <eval phase="Final" priority="9000">hero.childfound[KingHelper].field[khHexes].value += 2</eval>
+    </thing>
+  <thing id="keLGExNone" name="-- None --" compset="KingEdict">
+    <tag group="EdictTable" tag="Promotion"/>
+    <tag group="explicit" tag="0"/>
+    </thing>
+  <thing id="keLGHoNone" name="-- None --" description="{b}Consumption:{/b} --\n{b}Economy:{/b} -2  {b}Loyalty:{/b} -4" compset="KingEdict">
+    <fieldval field="kaEconomy" value="-2"/>
+    <fieldval field="kaLoyalty" value="-4"/>
+    <tag group="EdictTable" tag="Holiday"/>
+    <tag group="explicit" tag="0"/>
+    </thing>
+  <thing id="keLGHoAnn" name="Annual" description="{b}Consumption:{/b} 1 BP\n{b}Economy:{/b} -1  {b}Loyalty:{/b} -2" compset="KingEdict">
+    <fieldval field="kaEconomy" value="-2"/>
+    <fieldval field="kaLoyalty" value="-4"/>
+    <fieldval field="kaConsump" value="1"/>
+    <tag group="explicit" tag="2"/>
+    <tag group="EdictTable" tag="Holiday"/>
+    </thing>
+  <thing id="keLGHoQu" name="Quarterly" description="{b}Consumption:{/b} 1d3 BP\n{b}Economy:{/b} 0  {b}Loyalty:{/b} 0" compset="KingEdict">
+    <fieldval field="kaConsump" value="1d3"/>
+    <tag group="explicit" tag="4"/>
+    <tag group="EdictTable" tag="Holiday"/>
+    </thing>
+  <thing id="keLGHoMon" name="Monthly" description="{b}Consumption:{/b} 1d6 BP\n{b}Economy:{/b} +1  {b}Loyalty:{/b} +2" compset="KingEdict">
+    <fieldval field="kaEconomy" value="1"/>
+    <fieldval field="kaLoyalty" value="2"/>
+    <fieldval field="kaConsump" value="1d6"/>
+    <tag group="explicit" tag="6"/>
+    <tag group="EdictTable" tag="Holiday"/>
+    </thing>
+  <thing id="keLGHoWk" name="Weekly" description="{b}Consumption:{/b} 1d12 BP\n{b}Economy:{/b} +2  {b}Loyalty:{/b} +4" compset="KingEdict">
+    <fieldval field="kaEconomy" value="2"/>
+    <fieldval field="kaLoyalty" value="4"/>
+    <fieldval field="kaConsump" value="1d12"/>
+    <tag group="explicit" tag="8"/>
+    <tag group="EdictTable" tag="Holiday"/>
+    </thing>
+  <thing id="keLGTxNone" name="-- None --" description="{b}Revenue:{/b} --\n{b}Economy:{/b} --  {b}Loyalty:{/b} --" compset="KingEdict">
+    <tag group="EdictTable" tag="Taxation"/>
+    <tag group="explicit" tag="0"/>
+    </thing>
+  <thing id="keLGTxMin" name="Minimal" description="{b}Revenue:{/b} Economy check/5\n{b}Economy:{/b} +2  {b}Loyalty:{/b} +2" compset="KingEdict">
+    <fieldval field="kaEconomy" value="2"/>
+    <fieldval field="kaLoyalty" value="2"/>
+    <tag group="EdictTable" tag="Taxation"/>
+    <tag group="explicit" tag="2"/>
+    </thing>
+  <thing id="keLGTxLight" name="Light" description="{b}Revenue:{/b} Economy check/4\n{b}Economy:{/b} +1  {b}Loyalty:{/b} +1" compset="KingEdict">
+    <fieldval field="kaEconomy" value="1"/>
+    <fieldval field="kaLoyalty" value="1"/>
+    <tag group="EdictTable" tag="Taxation"/>
+    <tag group="explicit" tag="4"/>
+    </thing>
+  <thing id="keLGTxNorm" name="Normal" description="{b}Revenue:{/b} Economy check/3\n{b}Economy:{/b} --  {b}Loyalty:{/b} --" compset="KingEdict">
+    <tag group="EdictTable" tag="Taxation"/>
+    <tag group="explicit" tag="6"/>
+    </thing>
+  <thing id="keLGTxHvy" name="Heavy" description="{b}Revenue:{/b} Economy check/2.5\n{b}Economy:{/b} -2  {b}Loyalty:{/b} -4" compset="KingEdict">
+    <fieldval field="kaEconomy" value="-2"/>
+    <fieldval field="kaLoyalty" value="-4"/>
+    <tag group="EdictTable" tag="Taxation"/>
+    <tag group="explicit" tag="8"/>
+    </thing>
+  <thing id="keLGTxCrus" name="Crushing" description="{b}Revenue:{/b} Economy check/2\n{b}Economy:{/b} -2  {b}Loyalty:{/b} -4" compset="KingEdict">
+    <fieldval field="kaEconomy" value="-4"/>
+    <fieldval field="kaLoyalty" value="-8"/>
+    <tag group="EdictTable" tag="Taxation"/>
+    <tag group="explicit" tag="10"/>
+    </thing>
+  <thing id="keLGCoNone" name="-- None --" compset="KingEdict">
+    <tag group="explicit" tag="0"/>
+    </thing>
+  <thing id="cLGCoEdict" name="Commission Edict (BP Cost Reduction)" description="field[hxMagMajor].value\nfield[hxMagMed].value\nfield[hxMagMinor].value\n\nThe rulers of your domain can commission a magic item to be made (or an existing magic item improved) for their personal use with a Commission Edict. The city where the Commission Edict is issued must contain a building capable of producing a magical item of the appropriate category; for this purpose, minor items are those whose price is 8,000 gp or less, medium items are 8,001-24,000 gp, and major items are over 24,000 gp. Leaders must pay full price for commissioned items. The commissioned item takes the place of one item slot of that category for as long as it takes to craft (or improve) the item, including any month or portion of a month in which it is being crafted. During this time, no other item can be generated to fill that slot.\n\nThe kingdom’s rulers can commission more than one item within that city as part of the same Commission Edict, but all items must be crafted within that city and no building within that city can be compelled to craft more than one item with this edict. Commissioning more than one item with the same Commission Edict generates 1 point of Unrest for each item after the first (not including potions or scrolls with a cost under 1,000 gp), representing the anger and resentment of other wealthy customers caused by their own requests being superseded by those of the country’s rulers, and of the crafters themselves for being forced to work on demand.\n\nA Commission Edict can instead divert the magical resources of medium and major item slots for one month, reducing construction cost for buildings in the same city or terrain improvements in adjacent hexes by 2 BP for each major slot commissioned, 1 BP for each medium slot, though commissioning multiple slots causes Unrest as described above." compset="CustomSpec" summary="Allows kingdom leaders to have magical items or buildings created at their request." uniqueness="unique">
+    <comment>The absolute earliest that this tag can be assigned is First/5200.</comment>
+    <fieldval field="usrCandid2" value="LGCoVa.?"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    <tag group="Helper" tag="ActivMenu"/>
+    <tag group="Custom" tag="LGKingSet"/>
+    <tag group="AllowRCust" tag="cfgTOUltRule"/>
+    <tag group="ChooseSrc2" tag="Thing"/>
+    <tag group="abCategory" tag="LGSpecEdict" name="Special Edicts"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval phase="First" priority="5500"><![CDATA[~    debug "~~~~~~ Settlement & Building Selection ~~~~~~~"
+~    debug "{b}Location:{/b} cLGCoEdict | {b}Timing:{/b} First/5500/1"
+
+~ Seach the Kingdom Hexes and find those with a settlement
+  foreach pick in hero from KingHex where "HexFeature.Settle"
+    field[abText].text = splice(field[abText].text,eachpick.tagids[thingid.?],"|")
+  nexteach
+  field[usrCandid1].text = field[abText].text
+
+      ~if nothing's been chosen, get out now
+      doneif (field[usrChosen1].ischosen = 0)]]></eval>
+    </thing>
+  <thing id="cLGEndEdict" name="Endowment Edict" description="An Endowment Edict represents the focused attention of the crowned heads of state on matters of arts and learning, in part for the betterment of the kingdom and its culture but equally (if not more so) for the purpose of garnering prestige both domestically and abroad. Rulers and citizens alike can take pride in their grand edifices to posterity, sparing no expense in spectacular architecture, resplendent artistic embellishment, and the finest collections of artifacts, animals, artists, scholars, or whatever else the endowed building proffers to the world.\n\nKingdoms of size 100 or less usually refer to endowed buildings by name, typically naming them after one of the kingdom’s leaders (especially one whose role correlates with the building in question) or a wealthy NPC patron.  Countries of size 101-200 may use a personal name associated with the building or may simply refer to it as the Royal Library, Museum, etc., while those of size 201 or more call them Imperial buildings.\n\n{B}Cost:{/B} Endowing a building costs 100 gp times the building’s cost in BP, which can be paid by withdrawing BP from the Treasury and converting it into gp, or the endowment can be paid directly by a PC or NPC from their own personal funds.\n\nMaintaining each endowed building and its collections and staff increases the kingdom’s Consumption by 1.\n\n{B}Special:{/B} If you roll the Noblesse Oblige kingdom event, you can treat that as an Endowment edict, having the nobles endow a building in their name rather than constructing a Monument or Park, paying both the up-front cost and the ongoing Consumption.\n\n{B}Benefit:{/B} Each Endowment edict that you issue gives your kingdom a +1 bonus to Fame and Loyalty as long as its Consumption is paid. If Consumption is not paid, these bonuses are lost and you gain 1 point of Unrest unless you succeed at a Loyalty check.\n\n{B}Types of Endowments:{/B} Each of the following buildings can be sponsored with an Endowment edict: Academy, Arena, Assembly, Bardic College, Colossus, Hanging Gardens, Hospital, Library, Magical Academy, Menagerie, Military Academy, Museum, Observatory, Theater. You may endow only one building of each type in your entire kingdom.\n\nIf you capture a city from another kingdom that contains one or more endowed buildings, you gain a +1 bonus to Fame but no bonus to Loyalty for each building as long as you pay their Consumption. Alternatively, you may destroy the endowed buildings of your enemy, gaining 2 points of Infamy for each endowed building you destroy." compset="CustomSpec" uniqueness="unique"></thing>
+  <thing id="hiNewSet" name="Settlement" description="To put a settlement on a claimed hex, you&apos;ll need to prepare it. Depending on the site, this process may involve clearing trees, moving boulders, digging sanitation trenches, and so on. See the Preparation Cost column on Table 4-6: Terrain and Terrain Improvements for the BP cost.\n\nIf your settlement is in a hex containing a canal, lake, ocean, river, or similar large body of water, you must decide which of your settlement&apos;s borders are water (riverbanks, lakeshores, or seashores) or land. Some types of buildings, such as Mills, Piers, and Waterfronts, must be adjacent to water.\n\nA new settlement consists of 1 district, represented by the District Grid map on page 226. Mark the four borders on the District Grid as land or water, as appropriate.\n\nMost settlements only have 1 district. If your District Grid is full and you want to add another district (for example, if you run out of available lots in that settlement and want to construct additional buildings), you can create an additional district for that settlement by paying the preparation cost for the settlement&apos;s terrain as listed on Table 4-6: Terrain and Terrain Improvements (see page 214). Remember that your kingdom&apos;s Control DC is based on the number of districts in your settlement." compset="HexImprove" replaces="hiSettle" uniqueness="unique">
+    <tag group="TerrImpCat" tag="Improve" name="Terrain Improvement" abbrev="Terrain Improvement"/>
+    <tag group="HexSpecCst" tag="Settle1" name="Settlement x1" abbrev="Settlement x1"/>
+    <tag group="HexFeature" tag="Settle" name="Prepare for Settlement" abbrev="Prepare for Settlement"/>
+    <tag group="Hide" tag="Statblock" name="Statblock" abbrev="Statblock"/>
+    <bootstrap thing="hiTest"></bootstrap>
+    </thing>
+  <thing id="hiTest" name="Test" description="Building ......  Qty ........... E:  --   L:  --   S:  --   Unrest   D:  --   C:  --   In:  --   F:  --   Inf:  --   Cor:  --   Cri:  --   Law:  --   Lor:  --   Pro:  --   Soc:  --" compset="HexImprove">
+    <tag group="TerrImpCat" tag="Improve"/>
+    <eval phase="Render" priority="999999"><![CDATA[    ~ OUT: v_total
+var qty_acad as number
+var qty_alch as number
+var qty_aren as number
+var qty_bank as number
+var qty_bardC as number
+var qty_barr as number
+var qty_blkM as number
+var qty_brew as number
+var qty_brig as number
+var qty_bureu as number
+var qty_castT as number
+var qty_castl as number
+var qty_cath as number
+var qty_cist as number
+var qty_dance as number
+var qty_dump as number
+var qty_everf as number
+var qty_exotA as number
+var qty_forei as number
+var qty_found as number
+var qty_garr as number
+var qty_gran as number
+var qty_grave as number
+var qty_guild as number
+var qty_herba as number
+var qty_hosp as number
+var qty_house as number
+var qty_inn as number
+var qty_jail as number
+var qty_libr as number
+var qty_luxu as number
+var qty_magSh as number
+var qty_magAc as number
+var qty_mans as number
+var qty_market as number
+var qty_menag as number
+var qty_milAc as number
+var qty_mill as number
+var qty_mint as number
+var qty_monast as number
+var qty_monum as number
+var qty_museu as number
+var qty_nobleV as number
+var qty_observ as number
+var qty_orph as number
+var qty_palace as number
+var qty_park as number
+var qty_pier as number
+var qty_shop as number
+var qty_shrine as number
+var qty_smith as number
+var qty_stocky as number
+var qty_tanner as number
+var qty_tavern as number
+var qty_tenem as number
+var qty_theat as number
+var qty_townH as number
+var qty_univ as number
+var qty_watch as number
+var qty_waterfront as number
+var qty_waterway as number
+var qty_windmill as number
+
+var qty_totBldg as number
+
+call KingQtyVar
+
+
+var qty_shop as number
+qty_shop = parent.tagcount[HexImprove.hiShopM] + parent.tagcount[HexImprove.hiShopL]
+debug "============= " & parent.field[hxName].text & " ================="
+debug "Building              | Qty | Kingdom                  ."
+debug "                          | " & qty_totBldg & " | E:  --   L:  --   S:  --   Unrest   D:  --   C:  --   In:  --   F:  --   Inf:  --   Cor:  --   Cri:  --   Law:  --   Lor:  --   Pro:  --   Soc:  --   "
+debug "Academy            : " & qty_acad
+debug "Alchemist           : " & qty_alch
+debug "Arena                 : " & qty_aren
+debug "Bank                   : " & qty_bank
+debug "Bard College      : " & qty_bardC
+debug "Barracks            : " & qty_barr
+debug "Black Market       : " & qty_blkM
+debug "Brewery             : " & qty_brew
+debug "Bridge                 : " & qty_brig
+debug "Bureau                : " & qty_bureu
+debug "Caster's Tower   : " & qty_castT
+debug "Castle                 : " & qty_castl
+debug "Cathedral            : " & qty_cath
+debug "Cistern                : " & qty_cist
+debug "Dance Hall          : " & qty_dance
+debug "Dump                  : " & qty_dump
+debug "Everflow Spr      : " & qty_everf
+debug "Ex. Artisan         : " & qty_exotA
+debug "Foreign Qtr         : " & qty_forei
+debug "Foundry             : " & qty_found
+debug "Garrison             : " & qty_garr
+debug "Granary             : " & qty_gran
+debug "Graveyard          : " & qty_grave
+debug "Guildhall             : " & qty_guild
+debug "Herbalist             : " & qty_herba
+debug "Hospital              : " & qty_hosp
+debug "House                 : " & qty_house
+debug "Inn                      : " & qty_inn
+debug "Jail                      : " & qty_jail
+debug "Library                : " & qty_libr
+debug "Luxury Store       : " & qty_luxu
+debug "Magic Shop         : " & qty_magSh
+debug "Mag Academy      : " & qty_magAc
+debug "Mansion               : " & qty_mans
+debug "Market                 : " & qty_market
+debug "Menagrie             : " & qty_menag
+debug "Mil Academy       : " & qty_milAc
+debug "Mill                      : " & qty_mill
+debug "Mint                     : " & qty_mint
+debug "Monastery           : " & qty_monast
+debug "Monument            : " & qty_monum
+debug "Museum              : " & qty_museu
+debug "Noble Villa           : " & qty_nobleV
+debug "Observatory         : " & qty_observ
+debug "Orphanage           : " & qty_orph
+debug "Palace                  : " & qty_palace
+debug "Park                     : " & qty_park
+debug "Pier                     : " & qty_pier
+debug "Shop                   : " & qty_shop
+debug "Shrine                 : " & qty_shrine
+debug "Smithy                 : " & qty_smith
+debug "Stockyard           : " & qty_stocky
+debug "Tannery               : " & qty_tanner
+debug "Tavern                 : " & qty_tavern
+debug "Tenement              : " & qty_tenem
+debug "Theater               : " & qty_theat
+debug "Town Hall            : " & qty_townH
+debug "University            : " & qty_univ
+debug "Watchtower         : " & qty_watch
+debug "Waterfront           : " & qty_waterfront
+debug "Waterway           : " & qty_waterway
+debug "Windmill                : " & qty_windmill]]></eval>
+    </thing>
+  <thing id="LGHexCount" name="Hex Count" compset="Ability">
+    <tag group="Helper" tag="ShowSpec"/>
+    </thing>
+  <thing id="hiLGAerie" name="Aerie" description="{b}Kingdom{/b} +2 Stability, -1 Unrest (on add)\n{b}Special Defense{/b} +1 Defense\n{b}Special:{/b} +2 bonus to stability checksagainst Monster Attacks involving flying creatures.\n\nA specialized tower suitable for raising and training hunting and message birds as well as stabling flying mounts." compset="HexImprove">
+    <fieldval field="bpCost" value="18"/>
+    <fieldval field="hiLots" value="1"/>
+    <fieldval field="hiDefense" value="1"/>
+    <fieldval field="kaStabilit" value="2"/>
+    <fieldval field="kaUnrest" value="-1"/>
+    <usesource source="pLGUltRule"/>
+    <tag group="TerrImpCat" tag="Building"/>
+    <tag group="SetBuild" tag="Aerie" name="Aerie"/>
+    </thing>
+  <thing id="hiLGAssem" name="Assembly" description="{b}Kingdom{/b} +2 Economy, +2 Stability, +1 Fame\n{b}Settlement{/b} +1 Corruption, +1 Law, +2 Society\n{b}Limit{/b} 1 per settlement \n\n{b}Special:{/b} When you issue an improvement Edict, you can build one additional building in a city with an Assembly or one additional terrain improvement in the hex containing the city or adjacent to it.\n\nA conclave of representatives from all sectors of society, including representatives from guilds, religious orders, civil authorities, allowing all factions a voice in governance." compset="HexImprove">
+    <fieldval field="bpCost" value="30"/>
+    <fieldval field="hiLots" value="2"/>
+    <fieldval field="kaEconomy" value="2"/>
+    <fieldval field="kaStabilit" value="1"/>
+    <fieldval field="kaFame" value="1"/>
+    <fieldval field="hiCorrupt" value="1"/>
+    <fieldval field="hiLaw" value="1"/>
+    <fieldval field="hiSociety" value="2"/>
+    <fieldval field="usrChkText" value="Impr. Edict Active"/>
+    <usesource source="pLGUltRule"/>
+    <tag group="TerrImpCat" tag="Building"/>
+    <tag group="Helper" tag="ActivMenu"/>
+    <tag group="SetBuild" tag="Assemb" name="Assembly" abbrev="hiGLAssem"/>
+    <eval phase="Final" priority="9000"><![CDATA[      ~ If ability not active, Get out Now!
+      doneif (field[usrIsCheck].value = 0)
+
+      hero.childfound[KingHelper].field[khBuilding].value += 1
+~ I want to add a new field called khBldgSit to allow for situational text but as of yet, I dont have the skill to do so.
+   debug "we are checked!"]]></eval>
+    <exprreq message="Only 1 Assembly per City is permitted."><![CDATA[countidentity[HexImprove] <= @ispick]]></exprreq>
+    </thing>
+  <thing id="hiLGBaths" name="Baths" description="{b}Kingdom{/b} +1 Economy, +1 Stability\n\n{b}Limit{/b} Adjacent to a waterway or water border.  This limitation can be ignored by doubling the construction cost of the Baths.\n\nA public building for bathing, often with hot running water and mineral soaks, sometimes heated by furnaces and other times by natural hot springs." compset="HexImprove">
+    <fieldval field="bpCost" value="4"/>
+    <fieldval field="hiLots" value="1"/>
+    <fieldval field="kaEconomy" value="1"/>
+    <fieldval field="kaStabilit" value="1"/>
+    <tag group="TerrImpCat" tag="Building"/>
+    <tag group="SetBuild" tag="Baths" name="Baths" abbrev="hiLGBaths"/>
+    <exprreq message="Must be adjacent to adjacent to Water." onlyonce="yes" issilent="yes"><![CDATA[tagis[HexImprove.hiMoat] + tagis[HexImprove.hiWaterway] + tagis[HexFeature.Water?] <> 0]]></exprreq>
+    </thing>
+  <thing id="hiLGBathsNW" name="Baths (No water access)" description="{b}Kingdom{/b} +1 Economy, +1 Stability\n\n{b}Limit{/b} Adjacent to a waterway or water border.  This limitation can be ignored by doubling the construction cost of the Baths.\n\nA public building for bathing, often with hot running water and mineral soaks, sometimes heated by furnaces and other times by natural hot springs." compset="HexImprove">
+    <comment><![CDATA[tagis[HexImprove.hiHouse] + tagis[HexImprove.hiTenement] + tagis[HexImprove.hiMansion] + tagis[HexImprove.hiNobleVil] <> 0]]></comment>
+    <fieldval field="hiLots" value="1"/>
+    <fieldval field="kaEconomy" value="1"/>
+    <fieldval field="kaStabilit" value="1"/>
+    <fieldval field="bpCost" value="8"/>
+    <tag group="TerrImpCat" tag="Building"/>
+    <tag group="SetBuild" tag="BathNWA" name="Baths (no water access)"/>
+    </thing>
+  <thing id="hiLGBordel" name="Bordello [Infamy not Coded]" description="{b}Kingdom{/b} +1 Economy, +1 Loyalty\n{b}Settlement{/b} +1 Corruption, +1 Crime, +1 Society; +1 Infamy per 3 Bordellos or Gambling Dens.\n{b}Special:{/b} Each Bordello causes -1 penalty to Stability checks to ressit {i}Drug Den{/i} and {i}Plague events{/i}.\n\nA place where carnal entertainments can be had, including lurid performances as well as personal services." compset="HexImprove">
+    <comment><![CDATA[tagcount[HexImprove.hiHouse] + tagcount[HexImprove.hiTenement] >= 2]]></comment>
+    <fieldval field="bpCost" value="4"/>
+    <fieldval field="hiLots" value="1"/>
+    <fieldval field="kaEconomy" value="1"/>
+    <fieldval field="kaLoyalty" value="1"/>
+    <fieldval field="kaInfamy" value="1"/>
+    <tag group="TerrImpCat" tag="Building"/>
+    <eval phase="First">~ Do not alter the number of decimals, any fewer and it will give wierd results.
+field[kaInfamy].value = 0.3333333</eval>
+    </thing>
+  <thing id="meLGUltRuKi" name="Ultimate Rulership Mechanics" description="This mechanic will force various mechanics to the cfg tab (each kingdom type has their own tab) and make live helper objects whichever Character type is required." compset="Mechanics">
+    <comment><![CDATA[    nl = @newline
+     tab = "&nbsp;&nbsp;&nbsp;&nbsp;"
+    bold = @boldon
+    endbold = @boldoff
+
+
+~ Tag Assignments
+     perform hero.childfound[hxCavern].assign[HexTyp.]
+     perform hero.childfound[hxDesert].assign[HexTyp.]
+     perform hero.childfound[hxCsDesert].assign[HexTyp.]
+     perform hero.childfound[hxCsForest].assign[HexTyp.]
+     perform hero.childfound[hxHills].assign[HexTyp.]
+     perform hero.childfound[hxCsHils].assign[HexTyp.]
+     perform hero.childfound[hxJungle].assign[HexTyp.]
+     perform hero.childfound[hxCsJungle].assign[HexTyp.]
+     perform hero.childfound[hxMarsh].assign[HexTyp.]
+     perform hero.childfound[hxCsMarsh].assign[HexTyp.]
+     perform hero.childfound[hxMountain].assign[HexTyp.]
+     perform hero.childfound[hxCsMounta].assign[HexTyp.]
+     perform hero.childfound[hxPlains].assign[HexTyp.]
+     perform hero.childfound[hxCsPlains].assign[HexTyp.]
+     perform hero.childfound[hxUnderwat].assign[HexTyp.]
+     perform hero.childfound[hxWater].assign[HexTyp.]]]></comment>
+    <usesource source="TobyFox" parent="pHbrUsers" name="Toby&apos;s Homebrew"/>
+    <bootstrap thing="cfgLGUltRuKi">
+      <containerreq phase="First" priority="300">CharType.typKing</containerreq>
+      </bootstrap>
+    <eval phase="Render" priority="9999"><![CDATA[var tab as string
+tab = "      "
+
+~ Seach the Kingdom Hexes and find those with a settlement
+  foreach pick in hero from KingHex
+~debug "==============================================="
+~debug "{b}Settlement Name:{/b} " & eachpick.field[hxName].text
+~debug "---- Buildings in Hex ----"
+~         debug "HexTyp: " & eachpick.tagcount[HexTyp.?]      
+~         debug "Terrain: " & eachpick.tagcount[Terrain.?]
+      foreach pick in eachpick.gizmo where "TerrImpCat.Building &! thingid.hiTest"
+~           debug tab & eachpick.tagnames[HexImprove.?,""] & " " & eachpick.tagcount[HexImprove.?]
+      nexteach
+~debug "---- Terrain Improvements in Hex ----"
+      foreach pick in eachpick.gizmo where "TerrImpCat.Improve &! HexFeature.Settle &! HexFeature.Claimed"
+           ~debug tab & eachpick.tagnames[HexFeature.?,""]
+~           debug tab & eachpick.tagnames[HexImprove.?,""] & " " & eachpick.tagcount[HexImprove.?]
+      nexteach
+  nexteach]]></eval>
+    </thing>
+  <thing id="cfgLGUltRuKi" name="Ultimate Rulership" description="This Configuration tab is for CharType.King (Kingdom) it contains details and instructions for handling Edicts and other such Kingdom level details." compset="Configure" uniqueness="unique">
+    <fieldval field="cfgObject1" value="Special Edicts"/>
+    <fieldval field="cfgAllow1" value="thingid.cLGCoEdict"/>
+    </thing>
+  <thing id="cLGCoEdItm" name="Commission" compset="CustomSpec"></thing>
+  <thing id="xLGMinorItm" name="Minor Item (&lt;8,000 gp)" description="thingid." compset="Ability">
+    <tag group="Helper" tag="ShowSpec"/>
+    <tag group="LGCoVa" tag="Minor" name="Minor - less than 8,000 gp" abbrev="Min."/>
+    </thing>
+  <thing id="xLGMedItm" name="Medium Item (8,001 - 24,000 gp)" compset="Ability">
+    <tag group="Helper" tag="ShowSpec"/>
+    <tag group="LGCoVa" tag="Medium" name="Medium - 8,001-24,000 gp"/>
+    </thing>
+  <thing id="xLGMagItm" name="Major Item (&gt;24,000 gp)" compset="Ability">
+    <tag group="Helper" tag="ShowSpec"/>
+    <tag group="LGCoVa" tag="Major" name="Major - 24,000 gp and above" abbrev="Maj."/>
+    </thing>
+  <thing id="xLGChooseItm" name="-- Choose Item Value --" compset="Ability">
+    <tag group="Helper" tag="ShowSpec"/>
+    <tag group="LGCoVa" tag="Null" name="Null" abbrev="Null"/>
+    </thing>
+  <thing id="xLGScrolItm" name="Potion or Scroll (&lt;1,000 gp)" compset="Ability">
+    <tag group="Helper" tag="ShowSpec"/>
+    <tag group="LGCoVa" tag="None" name="Negligible - less than 1,000" abbrev="Nil."/>
+    </thing>
+  <hidden id="kePrNone"/>
+  <hidden id="kePrStand"/>
+  <hidden id="kePrToken"/>
+  <hidden id="kePrAggres"/>
+  <hidden id="keHo1"/>
+  <hidden id="keHo12"/>
+  <hidden id="keHo24"/>
+  <hidden id="keHo6"/>
+  <hidden id="keHoNone"/>
+  <hidden id="keTxheavy"/>
+  <hidden id="keTxLight"/>
+  <hidden id="keTxNone"/>
+  <hidden id="keTxNormal"/>
+  <hidden id="keTxOverwh"/>
+  <hidden id="kePrExpan"/>
+  <extthing thing="hiRoad" group="Terrain" tag="Road"/>
+  <extthing thing="hiMine" group="Terrain" tag="Mine"/>
+  <extthing thing="hiCanal" group="Terrain" tag="Canal"/>
+  <extthing thing="hiFarm" group="Terrain" tag="Farm"/>
+  <extthing thing="hiFishery" group="Terrain" tag="Fishery"/>
+  <extthing thing="hiQuarry" group="Terrain" tag="Quarry"/>
+  <extthing thing="hiFort" group="Terrain" tag="Fort"/>
+  <extthing thing="hiHighway" group="Terrain" tag="Highway"/>
+  <extthing thing="hiAqueduct" group="Terrain" tag="Aqueduct"/>
+  <extthing thing="hiWatchtow" group="Terrain" tag="Watchtower"/>
+  <extthing thing="hiTOGrFishOut" group="Terrain" tag="FisheryOG"/>
+  <extthing thing="hiRoadBrid" group="Terrain" tag="RoadB"/>
+  <extthing thing="hiTOVinyar" group="Terrain" tag="Vinyard"/>
+  <extthing thing="hiSawmill" group="Terrain" tag="Sawmill"/>
+  <extthing thing="hiTOFishOut" group="Terrain" tag="FisheryO"/>
+  </document>
